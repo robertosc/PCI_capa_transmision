@@ -7,6 +7,8 @@ module fifo #(
             input [data_width-1:0] data_in,
             output full_fifo,
             output empty_fifo,
+            output almost_full_fifo,
+            output almost_empty_fifo,
             output error,
             output reg [data_width-1:0] data_out
             );
@@ -20,6 +22,8 @@ module fifo #(
     assign full_fifo = (cnt == size_fifo);
     assign empty_fifo = (cnt == 0);  
     assign error = (cnt > size_fifo);
+    assign almost_empty_fifo = (cnt == 1);
+    assign almost_full_fifo = (cnt == size_fifo-1);
 
 
 // WRITE //

@@ -4,7 +4,7 @@ module probador_fifo#(
 					(
                     output reg clk, wr_enable, rd_enable, reset,
 					output reg [data_width-1:0] data_in,
-                    input full_fifo, empty_fifo, error,
+                    input full_fifo, empty_fifo, error, almost_empty_fifo, almost_fifo_full,
 					input [data_width-1:0] data_out,
 					input [data_width-1:0] data_out_synth
                     );
