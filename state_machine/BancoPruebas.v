@@ -78,7 +78,7 @@ module BancoPruebas();
 			    .umbral_VCs		(umbral_VCs[3:0]));
 
 
-  probador provador1 (/*AUTOINST*/
+  probador probador1 (/*AUTOINST*/
 		      // Outputs
 		      .reset		(reset),
 		      .clk		(clk),
