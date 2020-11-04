@@ -2,7 +2,7 @@
 
 (* dynports =  1  *)
 (* src = "VC0_fifo_synth.v:1" *)
-module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0, empty_fifo_VC0, almost_full_fifo_VC0, almost_empty_fifo_VC0, error_VC0, data_out_VC0);
+module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0_synth, empty_fifo_VC0_synth, almost_full_fifo_VC0_synth, almost_empty_fifo_VC0_synth_synth, error_VC0_synth, data_out_VC0);
   (* src = "VC0_fifo_synth.v:58" *)
   wire [4:0] _0000_;
   (* src = "VC0_fifo_synth.v:43" *)
@@ -743,9 +743,9 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0, 
   wire _0733_;
   wire _0734_;
   (* src = "VC0_fifo_synth.v:11" *)
-  output almost_empty_fifo_VC0;
+  output almost_empty_fifo_VC0_synth_synth_synth;
   (* src = "VC0_fifo_synth.v:10" *)
-  output almost_full_fifo_VC0;
+  output almost_full_fifo_VC0_synth_synth;
   (* src = "VC0_fifo_synth.v:6" *)
   input clk;
   (* src = "VC0_fifo_synth.v:20" *)
@@ -755,11 +755,11 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0, 
   (* src = "VC0_fifo_synth.v:13" *)
   output [5:0] data_out_VC0;
   (* src = "VC0_fifo_synth.v:9" *)
-  output empty_fifo_VC0;
+  output empty_fifo_VC0_synth;
   (* src = "VC0_fifo_synth.v:12" *)
-  output error_VC0;
+  output error_VC0_synth;
   (* src = "VC0_fifo_synth.v:8" *)
-  output full_fifo_VC0;
+  output full_fifo_VC0_synth;
   wire [5:0] \mem[0] ;
   wire [5:0] \mem[10] ;
   wire [5:0] \mem[11] ;
@@ -948,15 +948,15 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0, 
   NOR _0774_ (
     .A(_0102_),
     .B(_0138_),
-    .Y(full_fifo_VC0)
+    .Y(full_fifo_VC0_synth)
   );
   NOR _0775_ (
     .A(cnt[4]),
     .B(_0138_),
-    .Y(empty_fifo_VC0)
+    .Y(empty_fifo_VC0_synth)
   );
   NOT _0776_ (
-    .A(empty_fifo_VC0),
+    .A(empty_fifo_VC0_synth),
     .Y(_0139_)
   );
   NOR _0777_ (
@@ -972,7 +972,7 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0, 
   NOR _0779_ (
     .A(_0137_),
     .B(_0141_),
-    .Y(almost_empty_fifo_VC0)
+    .Y(almost_empty_fifo_VC0_synth_synth_synth)
   );
   NAND _0780_ (
     .A(cnt[1]),
@@ -992,7 +992,7 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0, 
   NOR _0783_ (
     .A(cnt[4]),
     .B(_0144_),
-    .Y(almost_full_fifo_VC0)
+    .Y(almost_full_fifo_VC0_synth_synth)
   );
   NOR _0784_ (
     .A(_0104_),
@@ -2046,7 +2046,7 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0, 
   );
   NOT _0995_ (
     .A(_0309_),
-    .Y(error_VC0)
+    .Y(error_VC0_synth)
   );
   NAND _0996_ (
     .A(_0139_),
@@ -2068,7 +2068,7 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC0, 
     .Y(_0313_)
   );
   NOR _1000_ (
-    .A(almost_full_fifo_VC0),
+    .A(almost_full_fifo_VC0_synth_synth),
     .B(_0313_),
     .Y(_0314_)
   );
@@ -5096,7 +5096,7 @@ endmodule
 
 (* dynports =  1  *)
 (* src = "VC1_fifo_synth.v:1" *)
-module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1, empty_fifo_VC1, almost_full_fifo_VC1, almost_empty_fifo_VC1, error_VC1, data_out_VC1);
+module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1_synth, empty_fifo_VC1_synth, almost_full_fifo_VC1_synth, almost_empty_fifo_VC1_synth_synth, error_VC1_synth, data_out_VC1_synth);
   (* src = "VC1_fifo_synth.v:58" *)
   wire [4:0] _0000_;
   (* src = "VC1_fifo_synth.v:43" *)
@@ -5845,9 +5845,9 @@ module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1, 
   wire _0741_;
   wire _0742_;
   (* src = "VC1_fifo_synth.v:11" *)
-  output almost_empty_fifo_VC1;
+  output almost_empty_fifo_VC1_synth_synth_synth;
   (* src = "VC1_fifo_synth.v:10" *)
-  output almost_full_fifo_VC1;
+  output almost_full_fifo_VC1_synth_synth;
   (* src = "VC1_fifo_synth.v:6" *)
   input clk;
   (* src = "VC1_fifo_synth.v:20" *)
@@ -5855,13 +5855,13 @@ module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1, 
   (* src = "VC1_fifo_synth.v:7" *)
   input [5:0] data_in;
   (* src = "VC1_fifo_synth.v:13" *)
-  output [5:0] data_out_VC1;
+  output [5:0] data_out_VC1_synth;
   (* src = "VC1_fifo_synth.v:9" *)
-  output empty_fifo_VC1;
+  output empty_fifo_VC1_synth;
   (* src = "VC1_fifo_synth.v:12" *)
-  output error_VC1;
+  output error_VC1_synth;
   (* src = "VC1_fifo_synth.v:8" *)
-  output full_fifo_VC1;
+  output full_fifo_VC1_synth;
   wire [5:0] \mem[0] ;
   wire [5:0] \mem[10] ;
   wire [5:0] \mem[11] ;
@@ -6110,12 +6110,12 @@ module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1, 
   NOR _0797_ (
     .A(_0103_),
     .B(_0154_),
-    .Y(full_fifo_VC1)
+    .Y(full_fifo_VC1_synth)
   );
   NOR _0798_ (
     .A(cnt[4]),
     .B(_0154_),
-    .Y(empty_fifo_VC1)
+    .Y(empty_fifo_VC1_synth)
   );
   NOR _0799_ (
     .A(cnt[1]),
@@ -6130,7 +6130,7 @@ module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1, 
   NOR _0801_ (
     .A(cnt[4]),
     .B(_0156_),
-    .Y(almost_empty_fifo_VC1)
+    .Y(almost_empty_fifo_VC1_synth_synth_synth)
   );
   NAND _0802_ (
     .A(cnt[1]),
@@ -6168,7 +6168,7 @@ module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1, 
   );
   NOT _0809_ (
     .A(_0163_),
-    .Y(almost_full_fifo_VC1)
+    .Y(almost_full_fifo_VC1_synth_synth)
   );
   NOR _0810_ (
     .A(rd_enable),
@@ -6342,11 +6342,11 @@ module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1, 
   );
   NOT _0844_ (
     .A(_0193_),
-    .Y(error_VC1)
+    .Y(error_VC1_synth)
   );
   NOR _0845_ (
-    .A(empty_fifo_VC1),
-    .B(error_VC1),
+    .A(empty_fifo_VC1_synth),
+    .B(error_VC1_synth),
     .Y(_0194_)
   );
   NOR _0846_ (
@@ -9674,37 +9674,37 @@ module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo_VC1, 
   DFF _1511_ (
     .C(clk),
     .D(_0001_[0]),
-    .Q(data_out_VC1[0])
+    .Q(data_out_VC1_synth[0])
   );
   (* src = "VC1_fifo_synth.v:43" *)
   DFF _1512_ (
     .C(clk),
     .D(_0001_[1]),
-    .Q(data_out_VC1[1])
+    .Q(data_out_VC1_synth[1])
   );
   (* src = "VC1_fifo_synth.v:43" *)
   DFF _1513_ (
     .C(clk),
     .D(_0001_[2]),
-    .Q(data_out_VC1[2])
+    .Q(data_out_VC1_synth[2])
   );
   (* src = "VC1_fifo_synth.v:43" *)
   DFF _1514_ (
     .C(clk),
     .D(_0001_[3]),
-    .Q(data_out_VC1[3])
+    .Q(data_out_VC1_synth[3])
   );
   (* src = "VC1_fifo_synth.v:43" *)
   DFF _1515_ (
     .C(clk),
     .D(_0001_[4]),
-    .Q(data_out_VC1[4])
+    .Q(data_out_VC1_synth[4])
   );
   (* src = "VC1_fifo_synth.v:43" *)
   DFF _1516_ (
     .C(clk),
     .D(_0001_[5]),
-    .Q(data_out_VC1[5])
+    .Q(data_out_VC1_synth[5])
   );
   (* src = "VC1_fifo_synth.v:30" *)
   DFF _1517_ (
@@ -10516,21 +10516,21 @@ endmodule
 (* dynports =  1  *)
 (* top =  1  *)
 (* src = "initial_logic_synth.v:7" *)
-module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, pop_VC1_fifo_synth, full_fifo_VC0, empty_fifo_VC0, almost_full_fifo_VC0, almost_empty_fifo_VC0, error_VC0, data_out_VC0, full_fifo_VC1, empty_fifo_VC1, almost_full_fifo_VC1, almost_empty_fifo_VC1, error_VC1, data_out_VC1);
+module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, pop_VC1_fifo_synth, full_fifo_VC0_synth, empty_fifo_VC0_synth, almost_full_fifo_VC0_synth, almost_empty_fifo_VC0_synth_synth, error_VC0_synth, data_out_VC0, full_fifo_VC1_synth, empty_fifo_VC1_synth, almost_full_fifo_VC1_synth, almost_empty_fifo_VC1_synth_synth, error_VC1_synth, data_out_VC1_synth);
   (* src = "initial_logic_synth.v:32" *)
   (* unused_bits = "0" *)
   wire almost_empty_fifo;
   (* src = "initial_logic_synth.v:18" *)
-  output almost_empty_fifo_VC0;
+  output almost_empty_fifo_VC0_synth_synth_synth;
   (* src = "initial_logic_synth.v:24" *)
-  output almost_empty_fifo_VC1;
+  output almost_empty_fifo_VC1_synth_synth_synth;
   (* src = "initial_logic_synth.v:32" *)
   (* unused_bits = "0" *)
   wire almost_full_fifo;
   (* src = "initial_logic_synth.v:17" *)
-  output almost_full_fifo_VC0;
+  output almost_full_fifo_VC0_synth_synth;
   (* src = "initial_logic_synth.v:23" *)
-  output almost_full_fifo_VC1;
+  output almost_full_fifo_VC1_synth_synth;
   (* src = "initial_logic_synth.v:12" *)
   input clk;
   (* src = "initial_logic_synth.v:13" *)
@@ -10540,31 +10540,31 @@ module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, p
   (* src = "initial_logic_synth.v:20" *)
   output [5:0] data_out_VC0;
   (* src = "initial_logic_synth.v:26" *)
-  output [5:0] data_out_VC1;
+  output [5:0] data_out_VC1_synth;
   (* src = "initial_logic_synth.v:29" *)
   wire [5:0] data_out_demux_initial_synth_vc0;
   (* src = "initial_logic_synth.v:30" *)
   wire [5:0] data_out_demux_initial_synth_vc1;
   (* src = "initial_logic_synth.v:16" *)
-  output empty_fifo_VC0;
+  output empty_fifo_VC0_synth;
   (* src = "initial_logic_synth.v:22" *)
-  output empty_fifo_VC1;
+  output empty_fifo_VC1_synth;
   (* src = "initial_logic_synth.v:31" *)
   wire empty_main_fifo_synth;
   (* src = "initial_logic_synth.v:32" *)
   (* unused_bits = "0" *)
   wire error;
   (* src = "initial_logic_synth.v:19" *)
-  output error_VC0;
+  output error_VC0_synth;
   (* src = "initial_logic_synth.v:25" *)
-  output error_VC1;
+  output error_VC1_synth;
   (* src = "initial_logic_synth.v:32" *)
   (* unused_bits = "0" *)
   wire full_fifo;
   (* src = "initial_logic_synth.v:15" *)
-  output full_fifo_VC0;
+  output full_fifo_VC0_synth;
   (* src = "initial_logic_synth.v:21" *)
-  output full_fifo_VC1;
+  output full_fifo_VC1_synth;
   (* src = "initial_logic_synth.v:14" *)
   input pop_VC0_fifo_synth;
   (* src = "initial_logic_synth.v:14" *)
@@ -10586,8 +10586,8 @@ module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, p
   comb_initial_synth comb_initial_1 (
     .clk(clk),
     .empty_main_fifo_synth(empty_main_fifo),
-    .pause_vc0(almost_full_fifo_VC0),
-    .pause_vc1(almost_full_fifo_VC1),
+    .pause_vc0(almost_full_fifo_VC0_synth_synth),
+    .pause_vc1(almost_full_fifo_VC1_synth_synth),
     .pop_main_fifo_synth(pop_main_fifo),
     .valid_pop_out(valid_pop_out)
   );
@@ -10606,14 +10606,14 @@ module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, p
   (* module_not_derived = 32'd1 *)
   (* src = "initial_logic_synth.v:47" *)
   VC0_fifo_synth fifo_VC0 (
-    .almost_empty_fifo_VC0(almost_empty_fifo_VC0),
-    .almost_full_fifo_VC0(almost_full_fifo_VC0),
+    .almost_empty_fifo_VC0_synth_synth_synth(almost_empty_fifo_VC0),
+    .almost_full_fifo_VC0_synth_synth(almost_full_fifo_VC0),
     .clk(clk),
     .data_in(data_out_demux_initial_synth_vc0),
     .data_out_VC0(data_out_VC0),
-    .empty_fifo_VC0(empty_fifo_VC0),
-    .error_VC0(error_VC0),
-    .full_fifo_VC0(full_fifo_VC0),
+    .empty_fifo_VC0_synth(empty_fifo_VC0),
+    .error_VC0_synth(error_VC0),
+    .full_fifo_VC0_synth(full_fifo_VC0),
     .rd_enable(pop_VC0_fifo_synth),
     .reset(reset),
     .wr_enable(push_vc0)
@@ -10621,14 +10621,14 @@ module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, p
   (* module_not_derived = 32'd1 *)
   (* src = "initial_logic_synth.v:51" *)
   VC1_fifo_synth fifo_VC1 (
-    .almost_empty_fifo_VC1(almost_empty_fifo_VC1),
-    .almost_full_fifo_VC1(almost_full_fifo_VC1),
+    .almost_empty_fifo_VC1_synth_synth_synth(almost_empty_fifo_VC1),
+    .almost_full_fifo_VC1_synth_synth(almost_full_fifo_VC1),
     .clk(clk),
     .data_in(data_out_demux_initial_synth_vc1),
-    .data_out_VC1(data_out_VC1),
-    .empty_fifo_VC1(empty_fifo_VC1),
-    .error_VC1(error_VC1),
-    .full_fifo_VC1(full_fifo_VC1),
+    .data_out_VC1_synth(data_out_VC1),
+    .empty_fifo_VC1_synth(empty_fifo_VC1),
+    .error_VC1_synth(error_VC1),
+    .full_fifo_VC1_synth(full_fifo_VC1),
     .rd_enable(pop_VC1_fifo_synth),
     .reset(reset),
     .wr_enable(push_vc1)
