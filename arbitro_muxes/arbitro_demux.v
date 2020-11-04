@@ -1,17 +1,15 @@
 module arbitro_demux(input [5:0] mux_arbitro_1,
-                    input reset_L,
-                    output reg [5:0] D0, D1);
+                    input reset_L, destiny,
+                    output reg [5:0] D0_out, D1_out);
 
     always@(*) begin
         if(~reset_L) begin
-            D0 = 0;
-            D1 = 0;
+            D0_out = 0;
+            D1_out = 0;
         end
         else begin
-            case (mux_arbitro_1[4])
-                0: D0 = mux_arbitro_1;
-                1: D1 = mux_arbitro_1;
-            endcase
+            if (destiny == 0) D0_out = mux_arbitro_1;
+            else if (destiny == 1) D1_out = mux_arbitro_1;
         end
     end
 
