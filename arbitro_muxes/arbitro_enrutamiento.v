@@ -5,7 +5,7 @@
 
 module arbitro_enrutamiento(input [5:0]VC0, VC1,
                             input clk, reset_L,
-                            input VC0_empty, VC1_empty,
+                            input VC0_empty, VC1_empty, D1_pause, D0_pause,
                             output VC1_pop, VC0_pop,
                             output [5:0] D0, D1);
 
