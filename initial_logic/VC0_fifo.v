@@ -50,6 +50,7 @@ module VC0_fifo #(
                 data_out_VC0 <= mem[rd_ptr];
                 rd_ptr <= rd_ptr+1;
            end
+           else data_out_VC0 <=0;
        end  
     end
 

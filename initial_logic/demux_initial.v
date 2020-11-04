@@ -18,11 +18,15 @@ module demux_initial(input clk,
             if (valid_pop_out == 1) begin
                 if(data_in_demux_initial[5] == 0)begin
                     data_out_demux_initial_vc0  <= data_in_demux_initial;
+                    data_out_demux_initial_vc1  <= 0;
                     push_vc0                    <= 1;
+                    push_vc1                    <= 0;
                 end
                 else if(data_in_demux_initial[5] == 1) begin
                     data_out_demux_initial_vc1  <= data_in_demux_initial;
+                    data_out_demux_initial_vc0  <= 0;
                     push_vc1                    <= 1;
+                    push_vc0                    <= 0;
                 end
             end
         end

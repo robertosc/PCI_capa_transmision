@@ -50,7 +50,8 @@ module main_fifo #(
                 data_out <= mem[rd_ptr];
                 rd_ptr <= rd_ptr+1;
            end
-       end  
+           else data_out <=0;
+       end   
     end
 
 //COUNTERS//

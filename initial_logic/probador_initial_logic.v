@@ -48,10 +48,25 @@ module probador_initial_logic#(
 	data_in <= 6'b000100;
 /////////////
 	@(posedge clk);
-	data_in <= 6'b000100;
+    wr_enable <= 1;
+	reset <= 1;
+	data_in <= 6'b100001;
 
 	@(posedge clk);
-	data_in <= 6'b000100;
+	data_in <= 6'b100010;
+
+
+	@(posedge clk);
+	data_in <= 6'b100011;
+
+	@(posedge clk);
+	data_in <= 6'b100100;
+/////////////
+	@(posedge clk);
+	data_in <= 6'b100100;
+	pop_VC0_fifo <= 1;
+	@(posedge clk);
+	data_in <= 6'b100100;
 ////////////
 	@(posedge clk);
     wr_enable <= 0;
@@ -59,11 +74,18 @@ module probador_initial_logic#(
 	@(posedge clk);
 
 	@(posedge clk);
-
+	pop_VC0_fifo <= 0;
+	pop_VC1_fifo <= 1;
 	@(posedge clk);
 
 	@(posedge clk);
 
+	@(posedge clk);
+
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	pop_VC1_fifo <= 0;
 	@(posedge clk);
 
 	@(posedge clk);
