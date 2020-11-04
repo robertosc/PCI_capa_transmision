@@ -15,22 +15,9 @@ module probador_initial_logic#(
             input almost_empty_fifo_VC1,
             input error_VC1,
             input [5:0] data_out_VC1,
-			input full_fifo_VC0_synth,
-            input empty_fifo_VC0_synth,
-            input almost_full_fifo_VC0_synth,
-            input almost_empty_fifo_VC0_synth,
-            input error_VC0_synth,
-            input [5:0] data_out_VC0_synth,
-            input full_fifo_VC1_synth,
-            input empty_fifo_VC1_synth,
-            input almost_full_fifo_VC1_synth,
-            input almost_empty_fifo_VC1_synth,
-            input error_VC1_synth,
-            input [5:0] data_out_VC1_synth,
 			output reg clk, reset, wr_enable,
             output reg [data_width-1:0] data_in,
-            output reg pop_VC0_fifo, pop_VC1_fifo,
-			output reg pause_vc0,pause_vc1 );
+            output reg pop_VC0_fifo, pop_VC1_fifo );
 
 	initial begin
 	$dumpfile("prueba_initial_logic.vcd");
@@ -40,7 +27,6 @@ module probador_initial_logic#(
 	data_in <= 0;
 	pop_VC0_fifo <= 0;
 	pop_VC1_fifo <= 0;
-	{pause_vc0, pause_vc1} <= 0;
 
 	@(posedge clk);
 	@(posedge clk);

@@ -10516,83 +10516,87 @@ endmodule
 (* dynports =  1  *)
 (* top =  1  *)
 (* src = "initial_logic_synth.v:7" *)
-module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, pop_VC1_fifo_synth, full_fifo_VC0_synth, empty_fifo_VC0_synth, almost_full_fifo_VC0_synth, almost_empty_fifo_VC0_synth_synth, error_VC0_synth, data_out_VC0, full_fifo_VC1_synth, empty_fifo_VC1_synth, almost_full_fifo_VC1_synth, almost_empty_fifo_VC1_synth_synth, error_VC1_synth, data_out_VC1_synth);
-  (* src = "initial_logic_synth.v:32" *)
+module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, pop_VC1_fifo_synth, pause_vc0, pause_vc1, full_fifo_VC0_synth, empty_fifo_VC0_synth, almost_full_fifo_VC0_synth, almost_empty_fifo_VC0_synth_synth, error_VC0_synth, data_out_VC0, full_fifo_VC1_synth, empty_fifo_VC1_synth, almost_full_fifo_VC1_synth, almost_empty_fifo_VC1_synth_synth, error_VC1_synth, data_out_VC1_synth);
+  (* src = "initial_logic_synth.v:33" *)
   (* unused_bits = "0" *)
   wire almost_empty_fifo;
-  (* src = "initial_logic_synth.v:18" *)
+  (* src = "initial_logic_synth.v:19" *)
   output almost_empty_fifo_VC0_synth_synth_synth;
-  (* src = "initial_logic_synth.v:24" *)
+  (* src = "initial_logic_synth.v:25" *)
   output almost_empty_fifo_VC1_synth_synth_synth;
-  (* src = "initial_logic_synth.v:32" *)
+  (* src = "initial_logic_synth.v:33" *)
   (* unused_bits = "0" *)
   wire almost_full_fifo;
-  (* src = "initial_logic_synth.v:17" *)
+  (* src = "initial_logic_synth.v:18" *)
   output almost_full_fifo_VC0_synth_synth;
-  (* src = "initial_logic_synth.v:23" *)
+  (* src = "initial_logic_synth.v:24" *)
   output almost_full_fifo_VC1_synth_synth;
   (* src = "initial_logic_synth.v:12" *)
   input clk;
   (* src = "initial_logic_synth.v:13" *)
   input [5:0] data_in;
-  (* src = "initial_logic_synth.v:33" *)
+  (* src = "initial_logic_synth.v:34" *)
   wire [5:0] data_in_demux_initial_synth;
-  (* src = "initial_logic_synth.v:20" *)
+  (* src = "initial_logic_synth.v:21" *)
   output [5:0] data_out_VC0;
-  (* src = "initial_logic_synth.v:26" *)
+  (* src = "initial_logic_synth.v:27" *)
   output [5:0] data_out_VC1_synth;
-  (* src = "initial_logic_synth.v:29" *)
-  wire [5:0] data_out_demux_initial_synth_vc0;
   (* src = "initial_logic_synth.v:30" *)
-  wire [5:0] data_out_demux_initial_synth_vc1;
-  (* src = "initial_logic_synth.v:16" *)
-  output empty_fifo_VC0_synth;
-  (* src = "initial_logic_synth.v:22" *)
-  output empty_fifo_VC1_synth;
+  wire [5:0] data_out_demux_initial_synth_vc0;
   (* src = "initial_logic_synth.v:31" *)
-  wire empty_main_fifo_synth;
+  wire [5:0] data_out_demux_initial_synth_vc1;
+  (* src = "initial_logic_synth.v:17" *)
+  output empty_fifo_VC0_synth;
+  (* src = "initial_logic_synth.v:23" *)
+  output empty_fifo_VC1_synth;
   (* src = "initial_logic_synth.v:32" *)
+  wire empty_main_fifo_synth;
+  (* src = "initial_logic_synth.v:33" *)
   (* unused_bits = "0" *)
   wire error;
-  (* src = "initial_logic_synth.v:19" *)
+  (* src = "initial_logic_synth.v:20" *)
   output error_VC0_synth;
-  (* src = "initial_logic_synth.v:25" *)
+  (* src = "initial_logic_synth.v:26" *)
   output error_VC1_synth;
-  (* src = "initial_logic_synth.v:32" *)
+  (* src = "initial_logic_synth.v:33" *)
   (* unused_bits = "0" *)
   wire full_fifo;
-  (* src = "initial_logic_synth.v:15" *)
+  (* src = "initial_logic_synth.v:16" *)
   output full_fifo_VC0_synth;
-  (* src = "initial_logic_synth.v:21" *)
+  (* src = "initial_logic_synth.v:22" *)
   output full_fifo_VC1_synth;
+  (* src = "initial_logic_synth.v:15" *)
+  input pause_vc0;
+  (* src = "initial_logic_synth.v:15" *)
+  input pause_vc1;
   (* src = "initial_logic_synth.v:14" *)
   input pop_VC0_fifo_synth;
   (* src = "initial_logic_synth.v:14" *)
   input pop_VC1_fifo_synth;
-  (* src = "initial_logic_synth.v:31" *)
+  (* src = "initial_logic_synth.v:32" *)
   wire pop_main_fifo_synth;
-  (* src = "initial_logic_synth.v:34" *)
+  (* src = "initial_logic_synth.v:35" *)
   wire push_vc0;
-  (* src = "initial_logic_synth.v:34" *)
+  (* src = "initial_logic_synth.v:35" *)
   wire push_vc1;
   (* src = "initial_logic_synth.v:12" *)
   input reset;
-  (* src = "initial_logic_synth.v:31" *)
+  (* src = "initial_logic_synth.v:32" *)
   wire valid_pop_out;
   (* src = "initial_logic_synth.v:12" *)
   input wr_enable;
   (* module_not_derived = 32'd1 *)
-  (* src = "initial_logic_synth.v:40" *)
+  (* src = "initial_logic_synth.v:41" *)
   comb_initial_synth comb_initial_1 (
     .clk(clk),
     .empty_main_fifo_synth(empty_main_fifo),
-    .pause_vc0(almost_full_fifo_VC0_synth_synth),
-    .pause_vc1(almost_full_fifo_VC1_synth_synth),
+    .pause_vc0(pause_vc0),
+    .pause_vc1(pause_vc1),
     .pop_main_fifo_synth(pop_main_fifo),
     .valid_pop_out(valid_pop_out)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "initial_logic_synth.v:43" *)
+  (* src = "initial_logic_synth.v:44" *)
   demux_initial_synth demux_initial_1 (
     .clk(clk),
     .data_in_demux_initial_synth(data_in_demux_initial),
@@ -10604,7 +10608,7 @@ module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, p
     .valid_pop_out(valid_pop_out)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "initial_logic_synth.v:47" *)
+  (* src = "initial_logic_synth.v:48" *)
   VC0_fifo_synth fifo_VC0 (
     .almost_empty_fifo_VC0_synth_synth_synth(almost_empty_fifo_VC0),
     .almost_full_fifo_VC0_synth_synth(almost_full_fifo_VC0),
@@ -10619,7 +10623,7 @@ module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, p
     .wr_enable(push_vc0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "initial_logic_synth.v:51" *)
+  (* src = "initial_logic_synth.v:52" *)
   VC1_fifo_synth fifo_VC1 (
     .almost_empty_fifo_VC1_synth_synth_synth(almost_empty_fifo_VC1),
     .almost_full_fifo_VC1_synth_synth(almost_full_fifo_VC1),
@@ -10634,7 +10638,7 @@ module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo_synth, p
     .wr_enable(push_vc1)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "initial_logic_synth.v:36" *)
+  (* src = "initial_logic_synth.v:37" *)
   main_fifo_synth fifo_main (
     .almost_empty_fifo(almost_empty_fifo),
     .almost_full_fifo(almost_full_fifo),

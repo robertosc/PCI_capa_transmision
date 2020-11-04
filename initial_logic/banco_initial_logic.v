@@ -34,6 +34,7 @@ module banco_initial_logic();
     wire almost_empty_fifo_VC1_synth;
     wire error_VC1_synth;
     wire [5:0] data_out_VC1_synth;
+	wire pause_vc0,pause_vc1;
 
     initial_logic initial_logic1(/*AUTOINST*/
 				 // Outputs
@@ -55,7 +56,10 @@ module banco_initial_logic();
 				 .wr_enable		(wr_enable),
 				 .data_in		(data_in[data_width-1:0]),
 				 .pop_VC0_fifo		(pop_VC0_fifo),
-				 .pop_VC1_fifo		(pop_VC1_fifo));
+				 .pop_VC1_fifo		(pop_VC1_fifo),
+				 .pause_vc0			(pause_vc0),
+				 .pause_vc1			(pause_vc1));
+
 	initial_logic_synth initial_logic1_synth(/*AUTOINST*/
 				 // Outputs
 				 .full_fifo_VC0_synth		(full_fifo_VC0_synth),
@@ -76,7 +80,9 @@ module banco_initial_logic();
 				 .wr_enable		(wr_enable),
 				 .data_in		(data_in[data_width-1:0]),
 				 .pop_VC0_fifo		(pop_VC0_fifo),
-				 .pop_VC1_fifo		(pop_VC1_fifo));
+				 .pop_VC1_fifo		(pop_VC1_fifo),
+				 .pause_vc0			(pause_vc0),
+				 .pause_vc1			(pause_vc1));
 
     probador_initial_logic probador_initial_logic_1(/*AUTOINST*/
 						    // Outputs
@@ -110,6 +116,8 @@ module banco_initial_logic();
 						    .almost_full_fifo_VC1_synth(almost_full_fifo_VC1_synth),
 						    .almost_empty_fifo_VC1_synth(almost_empty_fifo_VC1_synth),
 						    .error_VC1_synth		(error_VC1_synth),
-						    .data_out_VC1_synth	(data_out_VC1_synth[5:0]));
+						    .data_out_VC1_synth	(data_out_VC1_synth[5:0]),
+							.pause_vc0			(pause_vc0),
+							.pause_vc1			(pause_vc1));
     
 endmodule

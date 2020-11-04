@@ -12,7 +12,6 @@ module initial_logic#(
             input clk, reset, wr_enable,
             input [data_width-1:0] data_in,
             input pop_VC0_fifo, pop_VC1_fifo,
-            input pause_vc0,pause_vc1,
             output full_fifo_VC0,
             output empty_fifo_VC0,
             output almost_full_fifo_VC0,
@@ -38,7 +37,7 @@ module initial_logic#(
                     .full_fifo(full_fifo), .empty_fifo(empty_main_fifo), .almost_full_fifo(almost_full_fifo), 
                     .almost_empty_fifo(almost_empty_fifo), .error(error), .data_out(data_in_demux_initial));
 
-    comb_initial comb_initial_1(.clk(clk), .pause_vc0(pause_vc0), .pause_vc1(pause_vc1), .empty_main_fifo(empty_main_fifo),
+    comb_initial comb_initial_1(.clk(clk), .pause_vc0(almost_full_fifo_VC0), .pause_vc1(almost_full_fifo_VC1), .empty_main_fifo(empty_main_fifo),
                                 .pop_main_fifo(pop_main_fifo), .valid_pop_out(valid_pop_out));
 
     demux_initial demux_initial_1(.clk(clk), .data_in_demux_initial(data_in_demux_initial), .valid_pop_out(valid_pop_out),
