@@ -1,6 +1,6 @@
 module VC0_fifo #(
             parameter data_width = 6,
-			parameter address_width = 4
+			parameter address_width = 2
             )
             (
             input clk, reset, wr_enable, rd_enable,

@@ -10,6 +10,7 @@ sed:
 	sed -i 's/initial_logic/initial_logic_synth/' initial_logic_synth.v
 	sed -i 's/main_fifo/main_fifo_synth/' initial_logic_synth.v
 sed2:
+	sed -i 's/empty_main_fifo_synth/empty_main_fifo/' initial_logic_synth.v
 	sed -i 's/pop_main_fifo_synth/pop_main_fifo/' initial_logic_synth.v
 	sed -i 's/data_in_demux_initial_synth/data_in_demux_initial/' initial_logic_synth.v
 	sed -i 's/data_out_demux_initial_synth_vc0/data_out_demux_initial_vc0/' initial_logic_synth.v
