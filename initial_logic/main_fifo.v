@@ -1,4 +1,4 @@
-module fifo #(
+module main_fifo #(
             parameter data_width = 6,
 			parameter address_width = 2
             )

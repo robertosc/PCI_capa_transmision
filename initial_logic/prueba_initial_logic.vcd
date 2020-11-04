@@ -1,5 +1,5 @@
 $date
-	Tue Nov  3 00:41:52 2020
+	Tue Nov  3 18:09:46 2020
 $end
 $version
 	Icarus Verilog
@@ -10,77 +10,137 @@ $end
 $scope module banco_initial_logic $end
 $var wire 1 ! wr_enable $end
 $var wire 1 " reset $end
-$var wire 1 # push_vc1 $end
-$var wire 1 $ push_vc0 $end
-$var wire 1 % pause_vc1 $end
-$var wire 1 & pause_vc0 $end
-$var wire 6 ' data_out_demux_initial_vc1 [5:0] $end
-$var wire 6 ( data_out_demux_initial_vc0 [5:0] $end
-$var wire 6 ) data_in [5:0] $end
-$var wire 1 * clk $end
+$var wire 1 # pop_VC1_fifo $end
+$var wire 1 $ pop_VC0_fifo $end
+$var wire 1 % full_fifo_VC1 $end
+$var wire 1 & full_fifo_VC0 $end
+$var wire 1 ' error_VC1 $end
+$var wire 1 ( error_VC0 $end
+$var wire 1 ) empty_fifo_VC1 $end
+$var wire 1 * empty_fifo_VC0 $end
+$var wire 6 + data_out_VC1 [5:0] $end
+$var wire 6 , data_out_VC0 [5:0] $end
+$var wire 6 - data_in [5:0] $end
+$var wire 1 . clk $end
+$var wire 1 / almost_full_fifo_VC1 $end
+$var wire 1 0 almost_full_fifo_VC0 $end
+$var wire 1 1 almost_empty_fifo_VC1 $end
+$var wire 1 2 almost_empty_fifo_VC0 $end
 $scope module initial_logic1 $end
 $var wire 1 ! wr_enable $end
-$var wire 1 + valid_pop_out $end
+$var wire 1 3 valid_pop_out $end
 $var wire 1 " reset $end
-$var wire 1 # push_vc1 $end
-$var wire 1 $ push_vc0 $end
-$var wire 1 , pop_main_fifo $end
-$var wire 1 % pause_vc1 $end
-$var wire 1 & pause_vc0 $end
-$var wire 1 - full_fifo $end
-$var wire 1 . error $end
-$var wire 1 / empty_main_fifo $end
-$var wire 6 0 data_out_demux_initial_vc1 [5:0] $end
-$var wire 6 1 data_out_demux_initial_vc0 [5:0] $end
-$var wire 6 2 data_in_demux_initial [5:0] $end
-$var wire 6 3 data_in [5:0] $end
-$var wire 1 * clk $end
-$var wire 1 4 almost_full_fifo $end
-$var wire 1 5 almost_empty_fifo $end
+$var wire 1 4 push_vc1 $end
+$var wire 1 5 push_vc0 $end
+$var wire 1 6 pop_main_fifo $end
+$var wire 1 # pop_VC1_fifo $end
+$var wire 1 $ pop_VC0_fifo $end
+$var wire 1 % full_fifo_VC1 $end
+$var wire 1 & full_fifo_VC0 $end
+$var wire 1 7 full_fifo $end
+$var wire 1 ' error_VC1 $end
+$var wire 1 ( error_VC0 $end
+$var wire 1 8 error $end
+$var wire 1 9 empty_main_fifo $end
+$var wire 1 ) empty_fifo_VC1 $end
+$var wire 1 * empty_fifo_VC0 $end
+$var wire 6 : data_out_demux_initial_vc1 [5:0] $end
+$var wire 6 ; data_out_demux_initial_vc0 [5:0] $end
+$var wire 6 < data_out_VC1 [5:0] $end
+$var wire 6 = data_out_VC0 [5:0] $end
+$var wire 6 > data_in_demux_initial [5:0] $end
+$var wire 6 ? data_in [5:0] $end
+$var wire 1 . clk $end
+$var wire 1 / almost_full_fifo_VC1 $end
+$var wire 1 0 almost_full_fifo_VC0 $end
+$var wire 1 @ almost_full_fifo $end
+$var wire 1 1 almost_empty_fifo_VC1 $end
+$var wire 1 2 almost_empty_fifo_VC0 $end
+$var wire 1 A almost_empty_fifo $end
 $scope module comb_initial_1 $end
-$var wire 1 % pause_vc1 $end
-$var wire 1 & pause_vc0 $end
-$var wire 1 / empty_main_fifo $end
-$var wire 1 * clk $end
-$var reg 1 , pop_main_fifo $end
-$var reg 1 + valid_pop_out $end
+$var wire 1 / pause_vc1 $end
+$var wire 1 0 pause_vc0 $end
+$var wire 1 9 empty_main_fifo $end
+$var wire 1 . clk $end
+$var reg 1 6 pop_main_fifo $end
+$var reg 1 3 valid_pop_out $end
 $upscope $end
 $scope module demux_initial_1 $end
-$var wire 1 + valid_pop_out $end
+$var wire 1 3 valid_pop_out $end
 $var wire 1 " reset $end
-$var wire 6 6 data_in_demux_initial [5:0] $end
-$var wire 1 * clk $end
-$var reg 6 7 data_out_demux_initial_vc0 [5:0] $end
-$var reg 6 8 data_out_demux_initial_vc1 [5:0] $end
-$var reg 1 $ push_vc0 $end
-$var reg 1 # push_vc1 $end
+$var wire 6 B data_in_demux_initial [5:0] $end
+$var wire 1 . clk $end
+$var reg 6 C data_out_demux_initial_vc0 [5:0] $end
+$var reg 6 D data_out_demux_initial_vc1 [5:0] $end
+$var reg 1 5 push_vc0 $end
+$var reg 1 4 push_vc1 $end
+$upscope $end
+$scope module fifo_VC0 $end
+$var wire 6 E data_in [5:0] $end
+$var wire 1 5 wr_enable $end
+$var wire 1 " reset $end
+$var wire 1 $ rd_enable $end
+$var wire 1 & full_fifo_VC0 $end
+$var wire 1 ( error_VC0 $end
+$var wire 1 * empty_fifo_VC0 $end
+$var wire 1 . clk $end
+$var wire 1 0 almost_full_fifo_VC0 $end
+$var wire 1 2 almost_empty_fifo_VC0 $end
+$var reg 5 F cnt [4:0] $end
+$var reg 6 G data_out_VC0 [5:0] $end
+$var reg 4 H rd_ptr [3:0] $end
+$var reg 4 I wr_ptr [3:0] $end
+$upscope $end
+$scope module fifo_VC1 $end
+$var wire 6 J data_in [5:0] $end
+$var wire 1 4 wr_enable $end
+$var wire 1 " reset $end
+$var wire 1 # rd_enable $end
+$var wire 1 % full_fifo_VC1 $end
+$var wire 1 ' error_VC1 $end
+$var wire 1 ) empty_fifo_VC1 $end
+$var wire 1 . clk $end
+$var wire 1 / almost_full_fifo_VC1 $end
+$var wire 1 1 almost_empty_fifo_VC1 $end
+$var reg 5 K cnt [4:0] $end
+$var reg 6 L data_out_VC1 [5:0] $end
+$var reg 4 M rd_ptr [3:0] $end
+$var reg 4 N wr_ptr [3:0] $end
 $upscope $end
 $scope module fifo_main $end
-$var wire 1 , rd_enable $end
+$var wire 1 6 rd_enable $end
 $var wire 1 ! wr_enable $end
 $var wire 1 " reset $end
-$var wire 1 - full_fifo $end
-$var wire 1 . error $end
-$var wire 1 / empty_fifo $end
-$var wire 6 9 data_in [5:0] $end
-$var wire 1 * clk $end
-$var wire 1 4 almost_full_fifo $end
-$var wire 1 5 almost_empty_fifo $end
-$var reg 3 : cnt [2:0] $end
-$var reg 6 ; data_out [5:0] $end
-$var reg 2 < rd_ptr [1:0] $end
-$var reg 2 = wr_ptr [1:0] $end
+$var wire 1 7 full_fifo $end
+$var wire 1 8 error $end
+$var wire 1 9 empty_fifo $end
+$var wire 6 O data_in [5:0] $end
+$var wire 1 . clk $end
+$var wire 1 @ almost_full_fifo $end
+$var wire 1 A almost_empty_fifo $end
+$var reg 3 P cnt [2:0] $end
+$var reg 6 Q data_out [5:0] $end
+$var reg 2 R rd_ptr [1:0] $end
+$var reg 2 S wr_ptr [1:0] $end
 $upscope $end
 $upscope $end
 $scope module probador_initial_logic_1 $end
-$var wire 6 > data_out_demux_initial_vc0 [5:0] $end
-$var wire 6 ? data_out_demux_initial_vc1 [5:0] $end
-$var wire 1 $ push_vc0 $end
-$var wire 1 # push_vc1 $end
-$var reg 1 * clk $end
-$var reg 6 @ data_in [5:0] $end
-$var reg 1 & pause_vc0 $end
-$var reg 1 % pause_vc1 $end
+$var wire 1 2 almost_empty_fifo_VC0 $end
+$var wire 1 1 almost_empty_fifo_VC1 $end
+$var wire 1 0 almost_full_fifo_VC0 $end
+$var wire 1 / almost_full_fifo_VC1 $end
+$var wire 6 T data_out_VC0 [5:0] $end
+$var wire 6 U data_out_VC1 [5:0] $end
+$var wire 1 * empty_fifo_VC0 $end
+$var wire 1 ) empty_fifo_VC1 $end
+$var wire 1 ( error_VC0 $end
+$var wire 1 ' error_VC1 $end
+$var wire 1 & full_fifo_VC0 $end
+$var wire 1 % full_fifo_VC1 $end
+$var reg 1 . clk $end
+$var reg 6 V data_in [5:0] $end
+$var reg 1 $ pop_VC0_fifo $end
+$var reg 1 # pop_VC1_fifo $end
 $var reg 1 " reset $end
 $var reg 1 ! wr_enable $end
 $upscope $end
@@ -88,171 +148,208 @@ $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-b0 @
+b0 V
+b0 U
+b0 T
+b0 S
+b0 R
+b0 Q
+b0 P
+b0 O
+b0 N
+b0 M
+b0 L
+b0 K
+b0 J
+b0 I
+b0 H
+b0 G
+b0 F
+b0 E
+b0 D
+b0 C
+b0 B
+0A
+0@
 b0 ?
 b0 >
 b0 =
 b0 <
 b0 ;
 b0 :
-b0 9
-b0 8
-b0 7
-b0 6
+19
+08
+07
+06
 05
 04
-b0 3
-b0 2
-b0 1
-b0 0
-1/
-0.
-0-
-0,
-x+
+x3
+02
+01
+00
+0/
+1.
+b0 -
+b0 ,
+b0 +
 1*
-b0 )
-b0 (
-b0 '
-x&
-x%
+1)
+0(
+0'
+0&
+0%
 0$
 0#
 0"
 0!
 $end
 #1
-0*
+0.
 #2
-0+
-1*
+03
+1.
 #3
-0*
+0.
 #4
-1*
+1.
 #5
-0*
+0.
 #6
-0%
-0&
-b1 )
-b1 3
-b1 9
-b1 @
+b1 -
+b1 ?
+b1 O
+b1 V
 1"
 1!
-1*
+1.
 #7
-0*
+0.
 #8
-1,
-b1 =
-0/
-15
-b1 :
-b10 )
-b10 3
-b10 9
-b10 @
-1*
+16
+b1 S
+09
+1A
+b1 P
+b10 -
+b10 ?
+b10 O
+b10 V
+1.
 #9
-0*
+0.
 #10
-b11 )
-b11 3
-b11 9
-b11 @
-1+
-b1 <
-b1 2
-b1 6
-b1 ;
-b10 =
-1*
-#11
-0*
-#12
-b11 =
-b10 <
-b10 2
-b10 6
-b10 ;
-1$
-b1 (
-b1 1
-b1 7
+b11 -
+b11 ?
+b11 O
+b11 V
+13
+b1 R
 b1 >
-b100 )
-b100 3
-b100 9
-b100 @
-1*
-#13
-0*
-#14
-0,
-1%
-1&
-b10 (
-b10 1
-b10 7
+b1 B
+b1 Q
+b10 S
+1.
+#11
+0.
+#12
+b11 S
+b10 R
 b10 >
-b11 <
-b11 2
-b11 6
-b11 ;
-b0 =
-1*
-#15
+b10 B
+b10 Q
+15
+b1 ;
+b1 C
+b1 E
+b100 -
+b100 ?
+b100 O
+b100 V
+1.
+#13
+0.
+#14
 0*
-#16
-b1 =
-05
-b10 :
-0+
-b11 (
-b11 1
-b11 7
+12
+b1 F
+b1 I
+b10 ;
+b10 C
+b10 E
+b11 R
 b11 >
-1*
+b11 B
+b11 Q
+b0 S
+1.
+#15
+0.
+#16
+b1 S
+b0 R
+b100 >
+b100 B
+b100 Q
+b11 ;
+b11 C
+b11 E
+b10 I
+02
+b10 F
+1.
 #17
-0*
+0.
 #18
 0!
-0$
-b0 (
-b0 1
-b0 7
-b0 >
-14
-b11 :
-b10 =
-1*
+b11 F
+b11 I
+b100 ;
+b100 C
+b100 E
+b1 R
+b10 S
+1.
 #19
-0*
+0.
 #20
-1*
+06
+b10 R
+19
+0A
+b0 P
+b100 I
+b100 F
+1.
 #21
-0*
+0.
 #22
-1*
+b101 F
+b101 I
+03
+1.
 #23
-0*
+0.
 #24
-1*
+05
+b0 ;
+b0 C
+b0 E
+b110 I
+b110 F
+1.
 #25
-0*
+0.
 #26
-1*
+1.
 #27
-0*
+0.
 #28
-1*
+1.
 #29
-0*
+0.
 #30
-1*
+1.
 #31
-0*
+0.
 #32
-1*
+1.
