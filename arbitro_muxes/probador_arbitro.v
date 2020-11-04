@@ -2,7 +2,7 @@ module probador_arbitro(output reg [5:0] VC0, VC1,
                 output reg clk, reset_L,
                 output reg VC0_empty, VC1_empty,
                 output reg D0_pause, D1_pause,
-                input [5:0] D0_out, D1_out, D0_synth, D1_synth, 
+                input [5:0] D0_out, D1_out, D0_out_synth, D1_out_synth, 
                 input VC0_pop, VC1_pop, VC1_pop_synth, VC0_pop_synth);
 
 	initial begin

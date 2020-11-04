@@ -6,7 +6,7 @@
 module bancopruebas();
 
     wire [5:0] VC0, VC1;
-    wire [5:0] D0_out, D1_out;
+    wire [5:0] D0_out, D1_out, D0_out_synth, D1_out_synth;
 
 arbitro_enrutamiento u_arbitro_enrutamiento(
     .VC0       ( VC0 [5:0]      ),
@@ -35,14 +35,10 @@ probador_arbitro u_probador_arbitro(
     .VC1_pop       ( VC1_pop       ),
     .VC0_empty     ( VC0_empty     ),
     .VC1_empty     ( VC1_empty     ),
-    .D0_out            ( D0_out [5:0]           ),
-    .D1_out            ( D1_out [5:0]           ),
-    .D1_synth_pause ( D1_synth_pause ),
-    .D0_synth_pause ( D0_synth_pause ),
     .VC1_pop_synth  ( VC1_pop_synth  ),
     .VC0_pop_synth  ( VC0_pop_synth  ),
-    .D0_synth       ( D0_synth [5:0]      ),
-    .D1_synth       ( D1_synth [5:0]      )
+    .D0_out_synth       ( D0_out_synth [5:0]      ),
+    .D1_out_synth       ( D1_out_synth [5:0]      )
 );
 
 arbitro_enrutamiento_synth u_arbitro_enrutamiento_synth(
@@ -56,8 +52,8 @@ arbitro_enrutamiento_synth u_arbitro_enrutamiento_synth(
     .D0_pause ( D0_pause ),
     .VC1_pop_synth  ( VC1_pop_synth  ),
     .VC0_pop_synth  ( VC0_pop_synth  ),
-    .D0_synth       ( D0_synth [5:0]      ),
-    .D1_synth       ( D1_synth [5:0]      )
+    .D0_out_synth       ( D0_out_synth [5:0]      ),
+    .D1_out_synth       ( D1_out_synth [5:0]      )
 );
 
 
