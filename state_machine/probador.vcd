@@ -1,5 +1,5 @@
 $date
-	Mon Oct 26 00:54:33 2020
+	Mon Oct 26 13:29:27 2020
 $end
 $version
 	Icarus Verilog
@@ -44,7 +44,7 @@ $var wire 1 ? active_out_synth $end
 $var wire 1 @ active_out $end
 $var wire 5 A FIFO_errors [4:0] $end
 $var wire 5 B FIFO_empties [4:0] $end
-$scope module provador1 $end
+$scope module probador1 $end
 $var wire 4 C umbral_VCs_out_synth [3:0] $end
 $var wire 4 D umbral_VCs_out [3:0] $end
 $var wire 4 E umbral_MFs_out_synth [3:0] $end
