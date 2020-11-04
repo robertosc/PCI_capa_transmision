@@ -1,7 +1,7 @@
 module arbitro_mux(input reset_L, clk,
 					input [5:0] VC0,
 					input [5:0] VC1,
-					input pop_delay_VCO, pop_delay_VC1,
+					input pop_delay_VC0, pop_delay_VC1,
 					input VC0_empty,
 					output reg [5:0] mux_arbitro_1);
 
@@ -11,10 +11,10 @@ module arbitro_mux(input reset_L, clk,
 		end
 		else begin
 			if (~VC0_empty) begin
-				mux_arbitro_1 <= VC0;
+				if(pop_delay_VC0) mux_arbitro_1 <= VC0;
 			end
 			else begin
-				if()
+				if(pop_delay_VC1) mux_arbitro_1 <= VC1;
 			end
 		end 
 	end

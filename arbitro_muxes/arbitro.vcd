@@ -1,5 +1,5 @@
 $date
-	Tue Nov  3 15:11:48 2020
+	Tue Nov  3 20:31:01 2020
 $end
 $version
 	Icarus Verilog
@@ -10,41 +10,69 @@ $end
 $scope module bancopruebas $end
 $var wire 1 ! reset_L $end
 $var wire 1 " pop_delay_VCO $end
-$var wire 1 # clk $end
-$var wire 6 $ VC1 [5:0] $end
-$var wire 6 % VC0 [5:0] $end
-$var wire 6 & D1 [5:0] $end
-$var wire 6 ' D0 [5:0] $end
-$scope module u_arbitro_enrutamiento $end
-$var wire 1 ! reset_L $end
-$var wire 1 " pop_delay_VCO $end
-$var wire 6 ( mux_arbitro_1 [5:0] $end
-$var wire 1 # clk $end
-$var wire 6 ) VC1 [5:0] $end
+$var wire 1 # pop_delay_VC1 $end
+$var wire 1 $ clk $end
+$var wire 1 % VC1_pop $end
+$var wire 1 & VC1_empty $end
+$var wire 6 ' VC1 [5:0] $end
+$var wire 1 ( VC0_pop $end
+$var wire 1 ) VC0_empty $end
 $var wire 6 * VC0 [5:0] $end
 $var wire 6 + D1 [5:0] $end
 $var wire 6 , D0 [5:0] $end
+$scope module u_arbitro_enrutamiento $end
+$var wire 1 - D0_pause $end
+$var wire 1 . D1_pause $end
+$var wire 1 ! reset_L $end
+$var wire 1 / pop_delay_VC1 $end
+$var wire 1 0 pop_delay_VC0 $end
+$var wire 6 1 mux_arbitro_1 [5:0] $end
+$var wire 1 $ clk $end
+$var wire 1 % VC1_pop $end
+$var wire 1 & VC1_empty $end
+$var wire 6 2 VC1 [5:0] $end
+$var wire 1 ( VC0_pop $end
+$var wire 1 ) VC0_empty $end
+$var wire 6 3 VC0 [5:0] $end
+$var wire 6 4 D1 [5:0] $end
+$var wire 6 5 D0 [5:0] $end
 $scope module u_arbitro_demux $end
 $var wire 1 ! reset_L $end
-$var wire 6 - mux_arbitro_1 [5:0] $end
-$var reg 6 . D0 [5:0] $end
-$var reg 6 / D1 [5:0] $end
+$var wire 6 6 mux_arbitro_1 [5:0] $end
+$var reg 6 7 D0 [5:0] $end
+$var reg 6 8 D1 [5:0] $end
 $upscope $end
 $scope module u_arbitro_muxes $end
 $var wire 1 ! reset_L $end
-$var wire 1 " pop_delay_VCO $end
-$var wire 1 # clk $end
-$var wire 6 0 VC1 [5:0] $end
-$var wire 6 1 VC0 [5:0] $end
-$var reg 6 2 mux_arbitro_1 [5:0] $end
+$var wire 1 / pop_delay_VC1 $end
+$var wire 1 0 pop_delay_VC0 $end
+$var wire 1 $ clk $end
+$var wire 6 9 VC1 [5:0] $end
+$var wire 1 ) VC0_empty $end
+$var wire 6 : VC0 [5:0] $end
+$var reg 6 ; mux_arbitro_1 [5:0] $end
+$upscope $end
+$scope module u_logica_pops $end
+$var wire 1 - D0_pause $end
+$var wire 1 . D1_pause $end
+$var wire 1 $ clk $end
+$var wire 1 & VC1_empty $end
+$var wire 1 ) VC0_empty $end
+$var reg 1 ( VC0_pop $end
+$var reg 1 % VC1_pop $end
+$var reg 1 0 pop_delay_VC0 $end
+$var reg 1 / pop_delay_VC1 $end
 $upscope $end
 $upscope $end
-$scope module u_probador $end
-$var wire 6 3 D0 [5:0] $end
-$var wire 6 4 D1 [5:0] $end
-$var reg 6 5 VC0 [5:0] $end
-$var reg 6 6 VC1 [5:0] $end
-$var reg 1 # clk $end
+$scope module u_probador_arbitro $end
+$var wire 6 < D0 [5:0] $end
+$var wire 6 = D1 [5:0] $end
+$var reg 6 > VC0 [5:0] $end
+$var reg 1 ) VC0_empty $end
+$var reg 6 ? VC1 [5:0] $end
+$var reg 1 & VC1_empty $end
+$var reg 1 $ clk $end
+$var reg 1 # pop_delay_VC1 $end
 $var reg 1 " pop_delay_VCO $end
 $var reg 1 ! reset_L $end
 $upscope $end
@@ -52,150 +80,118 @@ $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-bx 6
-bx 5
+bx ?
+bx >
+b0 =
+b0 <
+b0 ;
+bx :
+bx 9
+b0 8
+b0 7
+b0 6
+b0 5
 b0 4
-b0 3
-b0 2
-bx 1
-bx 0
-b0 /
-b0 .
-b0 -
+bx 3
+bx 2
+b0 1
+00
+0/
+z.
+z-
 b0 ,
 b0 +
 bx *
-bx )
-b0 (
-b0 '
-b0 &
-bx %
-bx $
+x)
+0(
+bx '
+x&
+0%
+1$
 1#
 0"
 0!
 $end
 #1
-0#
+0$
 #2
-b110110 $
-b110110 )
-b110110 0
-b110110 6
-b110100 %
+b110110 '
+b110110 2
+b110110 9
+b110110 ?
 b110100 *
-b110100 1
-b110100 5
+b110100 3
+b110100 :
+b110100 >
 1!
-1#
+1$
 #3
-0#
+0$
 #4
-b110110 &
-b110110 +
-b110110 /
-b110110 4
-b110110 (
-b110110 -
-b110110 2
-b101100 $
-b101100 )
-b101100 0
-b101100 6
-b100101 %
+b101100 '
+b101100 2
+b101100 9
+b101100 ?
 b100101 *
-b100101 1
-b100101 5
-1"
-1#
-#5
-0#
-#6
-b100101 '
-b100101 ,
-b100101 .
 b100101 3
-b110100 $
-b110100 )
-b110100 0
-b110100 6
-b110100 %
+b100101 :
+b100101 >
+1"
+1$
+#5
+0$
+#6
+b110100 '
+b110100 2
+b110100 9
+b110100 ?
 b110100 *
-b110100 1
-b110100 5
+b110100 3
+b110100 :
+b110100 >
+1)
 0"
-b100101 (
-b100101 -
-b100101 2
-1#
+1$
 #7
-0#
+0$
 #8
-b110100 &
-b110100 +
-b110100 /
-b110100 4
-b110100 (
-b110100 -
-b110100 2
-b110101 $
-b110101 )
-b110101 0
-b110101 6
-b110110 %
+b110101 '
+b110101 2
+b110101 9
+b110101 ?
 b110110 *
-b110110 1
-b110110 5
+b110110 3
+b110110 :
+b110110 >
 1"
-1#
+1$
 #9
-0#
+0$
 #10
-b110110 &
-b110110 +
-b110110 /
-b110110 4
-b110100 $
-b110100 )
-b110100 0
-b110100 6
-0"
-b110110 (
-b110110 -
-b110110 2
-1#
-#11
-0#
-#12
-b110100 &
-b110100 +
-b110100 /
-b110100 4
-b110100 (
-b110100 -
+b110100 '
 b110100 2
-b10110 $
-b10110 )
-b10110 0
-b10110 6
-b111101 %
+b110100 9
+b110100 ?
+0"
+1$
+#11
+0$
+#12
+b10110 '
+b10110 2
+b10110 9
+b10110 ?
 b111101 *
-b111101 1
-b111101 5
+b111101 3
+b111101 :
+b111101 >
 1"
-1#
+1$
 #13
-0#
+0$
 #14
-b111101 &
-b111101 +
-b111101 /
-b111101 4
-b111101 (
-b111101 -
-b111101 2
-1#
+1$
 #15
-0#
+0$
 #16
-1#
+1$
