@@ -1,4 +1,4 @@
-module arbitro_mux(input reset_L, clk,
+module arbitro_mux(	input reset_L, clk,
 					input [5:0] VC0,
 					input [5:0] VC1,
 					input pop_delay_VC0, pop_delay_VC1,
@@ -25,6 +25,4 @@ module arbitro_mux(input reset_L, clk,
 			end 
 		end 
 	end
-
-
 endmodule

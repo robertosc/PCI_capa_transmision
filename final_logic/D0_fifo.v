@@ -3,7 +3,7 @@ module D0_fifo #(
 			parameter address_width = 2
             )
             (
-            input clk, reset, wr_enable, rd_enable,
+            input clk, reset_L, wr_enable, rd_enable,
             input [data_width-1:0] data_in,
             output full_fifo_D0,
             output empty_fifo_D0,
@@ -28,7 +28,7 @@ module D0_fifo #(
 
 // WRITE //
     always @(posedge clk) begin
-       if (reset == 0) begin
+       if (reset_L == 0) begin
        wr_ptr <= 0;
        end
        else begin
@@ -41,7 +41,7 @@ module D0_fifo #(
 
 // READ //
     always @(posedge clk) begin
-       if (reset == 0) begin
+       if (reset_L == 0) begin
        rd_ptr <= 0;
        data_out_D0 <=0;
        end
@@ -56,7 +56,7 @@ module D0_fifo #(
 
 //COUNTERS//
     always @(posedge clk) begin
-       if (reset == 0) begin
+       if (reset_L == 0) begin
             cnt <= 0;
        end
        else begin
