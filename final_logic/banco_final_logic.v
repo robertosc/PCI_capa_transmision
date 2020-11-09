@@ -1,5 +1,5 @@
-`include "final_logic.v"
-`include "probador_final_logic.v"
+`include "./final_logic/final_logic.v"
+`include "./final_logic/probador_final_logic.v"
 
 module banco_final_logic();
 

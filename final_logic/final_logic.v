@@ -1,6 +1,6 @@
-`include "arbitro_enrutamiento.v"
-`include "D0_fifo.v"
-`include "D1_fifo.v"
+`include "./arbitro_muxes/arbitro_enrutamiento.v"
+`include "./final_logic/D0_fifo.v"
+`include "./final_logic/D1_fifo.v"
 
 module final_logic#(
             parameter data_width = 6,
@@ -13,7 +13,7 @@ module final_logic#(
             output pop_VC0_fifo, pop_VC1_fifo,
             output error_D1, error_D0);
 
-wire fulloralmostfull_D0, fulloralmostfull_D1;
+wire fulloralmostfull_D0, fulloralmostfull_D1, D0_push, D1_push;
 wire [5:0] D0_out, D1_out;
 
 arbitro_enrutamiento u_arbitro_enrutamiento(
@@ -28,13 +28,15 @@ arbitro_enrutamiento u_arbitro_enrutamiento(
     .VC1_pop   (pop_VC1_fifo       ),
     .VC0_pop   (pop_VC0_fifo       ),
     .D0_out    ( D0_out [5:0]      ),
-    .D1_out    ( D1_out [5:0]      )
+    .D1_out    ( D1_out [5:0]      ),
+    .D0_push   ( D0_push           ),
+    .D1_push   ( D1_push           )
 );
 
 D0_fifo u_D0_fifo(
     .clk                  ( clk                  ),
-    .reset_L                ( reset_L                ),
-    .wr_enable            ( wr_enable            ),
+    .reset_L              ( reset_L              ),
+    .wr_enable            ( D0_push              ),
     .rd_enable            ( D0_pop               ),
     .data_in              ( D0_out [5:0]         ),
     .full_fifo_D0         ( full_fifo_D0         ),
@@ -47,8 +49,8 @@ D0_fifo u_D0_fifo(
 
 D1_fifo u_D1_fifo(
     .clk                  ( clk                  ),
-    .reset_L                ( reset_L                ),
-    .wr_enable            ( wr_enable            ),
+    .reset_L              ( reset_L              ),
+    .wr_enable            ( D1_push              ),
     .rd_enable            ( D1_pop               ),
     .data_in              ( D1_out [5:0]         ),
     .full_fifo_D1         ( full_fifo_D1         ),
@@ -58,8 +60,5 @@ D1_fifo u_D1_fifo(
     .error_D1             ( error_D1             ),
     .data_out_D1          ( data_out_D1          )
 );
-
-
-
 
 endmodule
