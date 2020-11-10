@@ -20,7 +20,6 @@ module probador_final_logic(output reg [5:0] data_out_VC0, data_out_VC1,
     reset_L <= 1;
     data_out_VC0 <= 6'b110100;
     data_out_VC1 <= 6'b110110;
-    D1_pop = 1;
     @(posedge clk);
 
     data_out_VC0 <= 6'b100101;
@@ -33,7 +32,7 @@ module probador_final_logic(output reg [5:0] data_out_VC0, data_out_VC1,
 
     @(posedge clk);
     D0_pop <= 1;
-    D1_pop <= 0;
+    D1_pop <= 1;
     data_out_VC0 <= 6'b110110;
     data_out_VC1 <= 6'b110101;
 

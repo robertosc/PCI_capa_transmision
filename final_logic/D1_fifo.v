@@ -25,11 +25,15 @@ module D1_fifo #(
     assign almost_empty_fifo_D1 = (cnt == 1);
     assign almost_full_fifo_D1 = (cnt == size_fifo-1);
 
+    integer i;
 
 // WRITE //
     always @(posedge clk) begin
-       if (reset_L == 0) begin
-       wr_ptr <= 0;
+        if (reset_L == 0) begin
+            wr_ptr <= 0;
+            for(i = 0; i<2**address_width; i=i+1) begin
+				mem[i] <= 0;
+			end
        end
        else begin
            if (wr_enable == 1) begin

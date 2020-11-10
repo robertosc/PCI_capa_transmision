@@ -22,19 +22,9 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1,
         //.mux_arbitro_1 ( mux_arbitro_1 [5:0] ),
         .D0_out        ( D0_out       [5:0] ),
         .D1_out        ( D1_out       [5:0] ),
-        .D0_push       ( D0_push),
-        .D1_push       (D1_push )
+        .D0_push       ( D0_push ),
+        .D1_push       ( D1_push )
     );
-
-
-    //arbitro_demux u_arbitro_demux(
-    //    .mux_arbitro_1 ( mux_arbitro_1[5:0] ),
-    //    .reset_L       ( reset_L       ),
-    //    .D0_out            ( D0_out           [5:0] ),
-    //    .D1_out            ( D1_out           [5:0] ),
-    //    .destiny           ( destiny )
-    //);
-
 
     logica_pops u_logica_pops(
         .VC0_empty     ( VC0_empty     ),
@@ -45,7 +35,8 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1,
         .VC0_pop       ( VC0_pop       ),
         .VC1_pop       ( VC1_pop       ),
         .pop_delay_VC0 ( pop_delay_VC0 ),
-        .pop_delay_VC1 ( pop_delay_VC1 )
+        .pop_delay_VC1 ( pop_delay_VC1 ),
+        .reset_L       ( reset_L       )
     );
 
 
