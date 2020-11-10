@@ -3469,7 +3469,7 @@ endmodule
 (* dynports =  1  *)
 (* top =  1  *)
 (* src = "initial_logic_synth.v:7" *)
-module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo, pop_VC1_fifo, pause_vc0, pause_vc1, full_fifo_VC0, empty_fifo_VC0, almost_full_fifo_VC0, almost_empty_fifo_VC0, error_VC0, data_out_VC0, full_fifo_VC1, empty_fifo_VC1, almost_full_fifo_VC1, almost_empty_fifo_VC1, error_VC1, data_out_VC1);
+module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo, pop_VC1_fifo, full_fifo_VC0, empty_fifo_VC0, almost_full_fifo_VC0, almost_empty_fifo_VC0, error_VC0, data_out_VC0, full_fifo_VC1, empty_fifo_VC1, almost_full_fifo_VC1, almost_empty_fifo_VC1, error_VC1, data_out_VC1);
   (* src = "initial_logic_synth.v:33" *)
   (* unused_bits = "0" *)
   wire almost_empty_fifo;
@@ -3518,10 +3518,6 @@ module initial_logic_synth(clk, reset, wr_enable, data_in, pop_VC0_fifo, pop_VC1
   output full_fifo_VC0;
   (* src = "initial_logic_synth.v:22" *)
   output full_fifo_VC1;
-  (* src = "initial_logic_synth.v:15" *)
-  input pause_vc0;
-  (* src = "initial_logic_synth.v:15" *)
-  input pause_vc1;
   (* src = "initial_logic_synth.v:14" *)
   input pop_VC0_fifo;
   (* src = "initial_logic_synth.v:14" *)
