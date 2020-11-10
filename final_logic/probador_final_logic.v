@@ -2,8 +2,8 @@ module probador_final_logic(output reg [5:0] data_out_VC0, data_out_VC1,
                             output reg clk, reset_L,
                             output reg empty_fifo_VC0, empty_fifo_VC1,
                             output reg D0_pop, D1_pop,
-                            input [5:0] data_out_D0, data_out_D1,
-                            input pop_VC0_fifo, pop_VC1_fifo, error_D0, error_D1);
+                            input [5:0] data_out_D0, data_out_D1, data_out_D0_synth, data_out_D1_synth,
+                            input pop_VC0_fifo, pop_VC1_fifo, error_D0, error_D1, pop_VC0_fifo_synth, pop_VC1_fifo_synth, error_D0_synth, error_D1_synth);
 
 	initial begin
 	$dumpfile("final_logic.vcd");
