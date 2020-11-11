@@ -8286,15 +8286,15 @@ module full_logic_synth(clk, reset, wr_enable, data_in, D0_pop, D1_pop, Umbral_M
   (* src = "full_logic_synth.v:20" *)
   input [3:0] umbral_Ds;
   (* src = "full_logic_synth.v:42" *)
-  (* unused_bits = "0 1 2 3" *)
   wire [3:0] umbral_Ds_out;
   (* src = "full_logic_synth.v:18" *)
   input [3:0] umbral_MFs;
   (* src = "full_logic_synth.v:40" *)
-  (* unused_bits = "0 1 2 3" *)
   wire [3:0] umbral_MFs_out;
   (* src = "full_logic_synth.v:19" *)
   input [3:0] umbral_VCs;
+  (* src = "full_logic_synth.v:41" *)
+  wire [3:0] umbral_VCs_out;
   (* src = "full_logic_synth.v:9" *)
   input wr_enable;
   (* module_not_derived = 32'd1 *)
@@ -8302,8 +8302,8 @@ module full_logic_synth(clk, reset, wr_enable, data_in, D0_pop, D1_pop, Umbral_M
   final_logic_synth final_logic_synth_1 (
     .D0_pop(D0_pop),
     .D1_pop(D1_pop),
-    .Umbral_D0(Umbral_D0),
-    .Umbral_D1(Umbral_D1),
+    .Umbral_D0(umbral_Ds_out),
+    .Umbral_D1(umbral_Ds_out),
     .clk(clk),
     .data_out_D0_synth(data_out_D0_synth),
     .data_out_D1_synth(data_out_D1_synth),
@@ -8323,9 +8323,9 @@ module full_logic_synth(clk, reset, wr_enable, data_in, D0_pop, D1_pop, Umbral_M
   (* module_not_derived = 32'd1 *)
   (* src = "full_logic_synth.v:47" *)
   initial_logic_synth initial_logic_synth_1 (
-    .Umbral_Main(Umbral_Main),
-    .Umbral_VC0(Umbral_VC0),
-    .Umbral_VC1(Umbral_VC1),
+    .Umbral_Main(umbral_MFs_out),
+    .Umbral_VC0(umbral_VCs_out),
+    .Umbral_VC1(umbral_VCs_out),
     .almost_empty_fifo_VC0(almost_empty_fifo_VC0),
     .almost_empty_fifo_VC1(almost_empty_fifo_VC1),
     .almost_full_fifo_VC0(almost_full_fifo_VC0),
@@ -8379,7 +8379,8 @@ module full_logic_synth(clk, reset, wr_enable, data_in, D0_pop, D1_pop, Umbral_M
     .umbral_Ds_out(umbral_Ds_out),
     .umbral_MFs(umbral_MFs),
     .umbral_MFs_out(umbral_MFs_out),
-    .umbral_VCs(umbral_VCs)
+    .umbral_VCs(umbral_VCs),
+    .umbral_VCs_out(umbral_VCs_out)
   );
 endmodule
 
