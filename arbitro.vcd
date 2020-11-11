@@ -1,5 +1,5 @@
 $date
-	Mon Nov  9 22:43:45 2020
+	Tue Nov 10 18:42:05 2020
 $end
 $version
 	Icarus Verilog
@@ -69,6 +69,7 @@ $var reg 6 C D1_out [5:0] $end
 $var reg 1 2 D1_push $end
 $upscope $end
 $scope module u_logica_pops $end
+$var wire 1 ( reset_L $end
 $var wire 1 ) clk $end
 $var wire 1 , VC1_empty $end
 $var wire 1 0 VC0_empty $end
@@ -550,60 +551,89 @@ $var reg 1 H Q $end
 $upscope $end
 $upscope $end
 $scope module u_logica_pops_synth $end
+$var wire 1 ( reset_L $end
 $var wire 1 D pop_delay_VC1 $end
 $var wire 1 E pop_delay_VC0 $end
 $var wire 1 ) clk $end
-$var wire 1 Z" _2_ $end
-$var wire 1 [" _1_ $end
-$var wire 1 \" _0_ $end
+$var wire 1 Z" _07_ $end
+$var wire 1 [" _06_ $end
+$var wire 1 \" _05_ $end
+$var wire 1 ]" _04_ $end
+$var wire 1 ^" _03_ $end
+$var wire 1 _" _02_ $end
+$var wire 1 `" _01_ $end
+$var wire 1 a" _00_ $end
 $var wire 1 * VC1_pop_synth $end
 $var wire 1 , VC1_empty $end
 $var wire 1 . VC0_pop_synth $end
 $var wire 1 0 VC0_empty $end
 $var wire 1 3 D1_pause $end
 $var wire 1 7 D0_pause $end
-$scope module _3_ $end
+$scope module _08_ $end
+$var wire 1 _" Y $end
+$var wire 1 ( A $end
+$upscope $end
+$scope module _09_ $end
+$var wire 1 ^" Y $end
+$var wire 1 , A $end
+$upscope $end
+$scope module _10_ $end
+$var wire 1 ]" Y $end
+$var wire 1 3 A $end
+$upscope $end
+$scope module _11_ $end
+$var wire 1 _" A $end
+$var wire 1 \" Y $end
+$var wire 1 7 B $end
+$upscope $end
+$scope module _12_ $end
+$var wire 1 ]" A $end
+$var wire 1 \" B $end
 $var wire 1 [" Y $end
-$var wire 1 3 B $end
-$var wire 1 7 A $end
 $upscope $end
-$scope module _4_ $end
-$var wire 1 [" A $end
+$scope module _13_ $end
+$var wire 1 ^" B $end
 $var wire 1 Z" Y $end
+$var wire 1 0 A $end
 $upscope $end
-$scope module _5_ $end
+$scope module _14_ $end
+$var wire 1 [" A $end
 $var wire 1 Z" B $end
+$var wire 1 * Y $end
+$upscope $end
+$scope module _15_ $end
+$var wire 1 [" B $end
 $var wire 1 . Y $end
 $var wire 1 0 A $end
 $upscope $end
-$scope module _6_ $end
+$scope module _16_ $end
+$var wire 1 [" A $end
+$var wire 1 Z" B $end
+$var wire 1 `" Y $end
+$upscope $end
+$scope module _17_ $end
 $var wire 1 [" B $end
-$var wire 1 \" Y $end
+$var wire 1 a" Y $end
 $var wire 1 0 A $end
 $upscope $end
-$scope module _7_ $end
-$var wire 1 \" B $end
-$var wire 1 * Y $end
-$var wire 1 , A $end
-$upscope $end
-$scope module _8_ $end
-$var wire 1 . D $end
+$scope module _18_ $end
+$var wire 1 a" D $end
 $var wire 1 ) C $end
 $var reg 1 E Q $end
 $upscope $end
-$scope module _9_ $end
-$var wire 1 * D $end
+$scope module _19_ $end
+$var wire 1 `" D $end
 $var wire 1 ) C $end
 $var reg 1 D Q $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module u_probador_arbitro $end
-$var wire 6 ]" D0_out [5:0] $end
-$var wire 6 ^" D0_out_synth [5:0] $end
+$var wire 6 b" D0_out [5:0] $end
+$var wire 6 c" D0_out_synth [5:0] $end
 $var wire 1 6 D0_push $end
-$var wire 6 _" D1_out [5:0] $end
-$var wire 6 `" D1_out_synth [5:0] $end
+$var wire 6 d" D1_out [5:0] $end
+$var wire 6 e" D1_out_synth [5:0] $end
 $var wire 1 2 D1_push $end
 $var wire 1 / VC0_pop $end
 $var wire 1 . VC0_pop_synth $end
@@ -611,9 +641,9 @@ $var wire 1 + VC1_pop $end
 $var wire 1 * VC1_pop_synth $end
 $var reg 1 7 D0_pause $end
 $var reg 1 3 D1_pause $end
-$var reg 6 a" VC0 [5:0] $end
+$var reg 6 f" VC0 [5:0] $end
 $var reg 1 0 VC0_empty $end
-$var reg 6 b" VC1 [5:0] $end
+$var reg 6 g" VC1 [5:0] $end
 $var reg 1 , VC1_empty $end
 $var reg 1 ) clk $end
 $var reg 1 ( reset_L $end
@@ -622,15 +652,20 @@ $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-bx b"
-bx a"
-bx `"
-bz _"
-bx0xxxx ^"
-bz ]"
-1\"
+bx g"
+bx f"
+bx e"
+bz d"
+bx0xxxx c"
+bz b"
+0a"
+0`"
+1_"
+1^"
+1]"
+0\"
 1["
-0Z"
+1Z"
 0Y"
 xX"
 0W"
@@ -755,7 +790,7 @@ b0 ?
 b0 >
 bx =
 bx <
-1;
+0;
 0:
 b0 9
 bx0xxxx 8
@@ -767,8 +802,8 @@ bx 4
 02
 bx 1
 00
-1/
-1.
+0/
+0.
 bx -
 0,
 0+
@@ -786,57 +821,61 @@ $end
 #1
 0)
 #2
-0c
-0[
-1R
+1.
+1a"
+1[
 1L
-1e
-1_
-1]
-0p
-0T
-0N
 1`
 1O
+1c
+1R
 1f
 1U
 1i
 1X
-0m
-1t
+0["
+0_
+0p
+0]
+0N
 0b
 0Q
+0e
+0T
 0h
 0W
 0l
 0Z
 1n
-1Y"
+0Y"
 0O"
 0Q"
-1S"
+0S"
 0U"
-1W"
+0W"
 0E"
 0G"
 0I"
 0K"
 0M"
 0u
-1>"
+1\"
+0>"
 0&"
 0:"
 0;"
-1<"
+0<"
 0="
-b110100 %"
-1?"
+b0 %"
+0?"
 0@"
 0A"
 0B"
 0C"
 b0 '"
 0D"
+1m
+1t
 0{
 1|
 0}
@@ -849,7 +888,7 @@ b0 '"
 1y
 1z
 0#"
-0^
+1^
 1o
 19"
 12"
@@ -865,9 +904,11 @@ b0 '"
 04"
 03"
 1-"
+0_"
 0""
+1/
 0D
-1E
+0E
 0H
 0J
 0X"
@@ -877,7 +918,7 @@ b0 '"
 b0 4
 b0 I
 b0 *"
-b0 `"
+b0 e"
 0P"
 0N"
 0L"
@@ -886,67 +927,67 @@ b0 `"
 b0 8
 b0 K
 b0 +"
-b0 ^"
+b0 c"
 0F"
 b110110 -
 b110110 <
 b110110 @
 b110110 F
 b110110 ("
-b110110 b"
+b110110 g"
 b110100 1
 b110100 =
 b110100 A
 b110100 G
 b110100 )"
-b110100 a"
+b110100 f"
 1(
 1)
 #3
 0)
 #4
-0S"
-0W"
 1E"
 1I"
 1M"
-0<"
-0Y"
-0?"
 1@"
 1B"
 b100101 '"
 1D"
-0>"
 1&"
-1c
-1^
-1[
 0o
 0X
 0R
 0L
 0O"
-b0 %"
+0S"
+0W"
 0:"
-0e
-0_
-0]
+0<"
+0Y"
+0?"
 1p
 1Z
 1T
 1N
+b0 %"
+0>"
 1i
-1m
+1c
+1^
+1[
 0t
-0l
 0n
+0l
+0e
+0_
+0]
 1u
 0|
 1~
 1$"
 0z
 1#"
+1m
 09"
 11"
 0/"
@@ -954,29 +995,20 @@ b0 %"
 08"
 13"
 0-"
-12
-b110100 5
-b110100 >
-b110100 C
+1;
 b101100 -
 b101100 <
 b101100 @
 b101100 F
 b101100 ("
-b101100 b"
+b101100 g"
 b100101 1
 b100101 =
 b100101 A
 b100101 G
 b100101 )"
-b100101 a"
-1T"
-1X"
-b110100 4
-b110100 I
-b110100 *"
-b110100 `"
-1H
+b100101 f"
+1E
 1)
 #5
 0)
@@ -998,13 +1030,15 @@ b0 '"
 0N
 0Z
 1*
+1`"
 1t
 1|
 0$"
 1z
 0#"
-0\"
+0a"
 0.
+0Z"
 0u
 19"
 01"
@@ -1014,39 +1048,28 @@ b0 '"
 1-"
 0/
 1+
-0H
 1J
-0X"
-b0 4
-b0 I
-b0 *"
-b0 `"
-0T"
 1N"
 1J"
 b100101 8
 b100101 K
 b100101 +"
-b100101 ^"
+b100101 c"
 1F"
 b110100 -
 b110100 <
 b110100 @
 b110100 F
 b110100 ("
-b110100 b"
+b110100 g"
 b110100 1
 b110100 =
 b110100 A
 b110100 G
 b110100 )"
-b110100 a"
+b110100 f"
 10
-02
 16
-b0 5
-b0 >
-b0 C
 b100101 9
 b100101 ?
 b100101 B
@@ -1072,13 +1095,13 @@ b110101 %"
 1_
 1\
 0*
+0`"
 0k
-1\"
+1["
 1r
-1Z"
 0!"
 0y
-0["
+0\"
 0s
 1."
 14"
@@ -1094,20 +1117,20 @@ b110101 <
 b110101 @
 b110101 F
 b110101 ("
-b110101 b"
+b110101 g"
 b110110 1
 b110110 =
 b110110 A
 b110110 G
 b110110 )"
-b110110 a"
+b110110 f"
 17
 0F"
 0J"
 b0 8
 b0 K
 b0 +"
-b0 ^"
+b0 c"
 0N"
 0J
 0E
@@ -1134,13 +1157,13 @@ b0 %"
 1k
 1i
 1*
+1`"
 0r
 0j
-0\"
-0Z"
+0["
 1s
 1!"
-1["
+1\"
 0."
 1+
 0D
@@ -1150,14 +1173,14 @@ b0 %"
 b110101 4
 b110101 I
 b110101 *"
-b110101 `"
+b110101 e"
 1P"
 b110100 -
 b110100 <
 b110100 @
 b110100 F
 b110100 ("
-b110100 b"
+b110100 g"
 07
 0:
 12
@@ -1204,20 +1227,20 @@ b10110 <
 b10110 @
 b10110 F
 b10110 ("
-b10110 b"
+b10110 g"
 b111101 1
 b111101 =
 b111101 A
 b111101 G
 b111101 )"
-b111101 a"
+b111101 f"
 0P"
 0T"
 0X"
 b0 4
 b0 I
 b0 *"
-b0 `"
+b0 e"
 0H
 1D
 1)
@@ -1229,7 +1252,7 @@ b0 `"
 b10110 4
 b10110 I
 b10110 *"
-b10110 `"
+b10110 e"
 1R"
 12
 b10110 5

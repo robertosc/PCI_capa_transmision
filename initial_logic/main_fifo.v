@@ -5,6 +5,7 @@ module main_fifo #(
             (
             input clk, reset, wr_enable, rd_enable,
             input [data_width-1:0] data_in,
+            input [3:0] Umbral_Main,
             output full_fifo,
             output empty_fifo,
             output almost_full_fifo,
@@ -22,8 +23,8 @@ module main_fifo #(
     assign full_fifo = (cnt == size_fifo);
     assign empty_fifo = (cnt == 0);  
     assign error = (cnt > size_fifo);
-    assign almost_empty_fifo = (cnt == 1);
-    assign almost_full_fifo = (cnt == size_fifo-1);
+    assign almost_empty_fifo = (cnt == Umbral_Main);
+    assign almost_full_fifo = (cnt == size_fifo-Umbral_Main);
 
 
 // WRITE //

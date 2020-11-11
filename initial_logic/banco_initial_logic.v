@@ -6,7 +6,7 @@ module banco_initial_logic();
 
 	parameter address_width = 2;
 	parameter data_width = 6;
-
+	wire Umbral_Main,Umbral_VC0,Umbral_VC1;
     wire clk, reset, wr_enable;
     wire [data_width-1:0] data_in;
     wire pop_VC0_fifo, pop_VC1_fifo;
@@ -34,7 +34,10 @@ module banco_initial_logic();
     wire almost_empty_fifo_VC1_synth;
     wire error_VC1_synth;
     wire [5:0] data_out_VC1_synth;
-	//wire pause_vc0,pause_vc1;
+	wire error_main;
+    wire empty_main_fifo;
+	wire error_main_synth;
+    wire empty_main_fifo_synth;
 
     initial_logic initial_logic1(/*AUTOINST*/
 				 // Outputs
@@ -50,13 +53,18 @@ module banco_initial_logic();
 				 .almost_empty_fifo_VC1	(almost_empty_fifo_VC1),
 				 .error_VC1		(error_VC1),
 				 .data_out_VC1		(data_out_VC1[5:0]),
+				 .empty_main_fifo (empty_main_fifo),
+				 .error_main (error_main),
 				 // Inputs
 				 .clk			(clk),
 				 .reset			(reset),
 				 .wr_enable		(wr_enable),
 				 .data_in		(data_in[data_width-1:0]),
 				 .pop_VC0_fifo		(pop_VC0_fifo),
-				 .pop_VC1_fifo		(pop_VC1_fifo));
+				 .pop_VC1_fifo		(pop_VC1_fifo),
+				 .Umbral_Main 	(Umbral_Main),
+				 .Umbral_VC0	(Umbral_VC0),
+				 .Umbral_VC1 	(Umbral_VC1));
 
 	initial_logic_synth initial_logic1_synth(/*AUTOINST*/
 				 // Outputs
@@ -72,13 +80,18 @@ module banco_initial_logic();
 				 .almost_empty_fifo_VC1	(almost_empty_fifo_VC1_synth),
 				 .error_VC1		(error_VC1_synth),
 				 .data_out_VC1		(data_out_VC1_synth[5:0]),
+				 .empty_main_fifo (empty_main_fifo_synth),
+				 .error_main (error_main_synth),
 				 // Inputs
 				 .clk			(clk),
 				 .reset			(reset),
 				 .wr_enable		(wr_enable),
 				 .data_in		(data_in[data_width-1:0]),
 				 .pop_VC0_fifo		(pop_VC0_fifo),
-				 .pop_VC1_fifo		(pop_VC1_fifo));
+				 .pop_VC1_fifo		(pop_VC1_fifo),
+				 .Umbral_Main 	(Umbral_Main),
+				 .Umbral_VC0	(Umbral_VC0),
+				 .Umbral_VC1	(Umbral_VC1));
 
     probador_initial_logic probador_initial_logic_1(/*AUTOINST*/
 						    // Outputs
@@ -88,7 +101,12 @@ module banco_initial_logic();
 						    .data_in		(data_in[data_width-1:0]),
 						    .pop_VC0_fifo	(pop_VC0_fifo),
 						    .pop_VC1_fifo	(pop_VC1_fifo),
+							.Umbral_Main 	(Umbral_Main),
+							.Umbral_VC0		(Umbral_VC0),
+							.Umbral_VC1		(Umbral_VC1),
 						    // Inputs
+							.error_main (error_main),
+							.empty_main_fifo (empty_main_fifo),
 						    .full_fifo_VC0	(full_fifo_VC0),
 						    .empty_fifo_VC0	(empty_fifo_VC0),
 						    .almost_full_fifo_VC0(almost_full_fifo_VC0),

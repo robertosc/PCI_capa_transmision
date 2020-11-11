@@ -5,6 +5,7 @@ module D1_fifo #(
             (
             input clk, reset_L, wr_enable, rd_enable,
             input [data_width-1:0] data_in,
+            input [3:0] Umbral_D1,
             output full_fifo_D1,
             output empty_fifo_D1,
             output almost_full_fifo_D1,

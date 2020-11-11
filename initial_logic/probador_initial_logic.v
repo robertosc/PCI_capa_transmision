@@ -27,15 +27,25 @@ module probador_initial_logic#(
             input almost_empty_fifo_VC1_synth,
             input error_VC1_synth,
             input [5:0] data_out_VC1_synth,
+			input error_main,
+            input empty_main_fifo,
+			input error_main_synth,
+            input empty_main_fifo_synth,
 			output reg clk, reset, wr_enable,
             output reg [data_width-1:0] data_in,
-            output reg pop_VC0_fifo, pop_VC1_fifo );
+            output reg pop_VC0_fifo, pop_VC1_fifo, 
+			output reg Umbral_Main,
+			output reg Umbral_VC0,
+			output reg Umbral_VC1);
 
 	initial begin
 	$dumpfile("prueba_initial_logic.vcd");
 	$dumpvars;
 
 	{wr_enable, reset} <= 0;
+	Umbral_Main<=1;
+	Umbral_VC0<=1;
+	Umbral_VC1<=1;
 	data_in <= 0;
 	pop_VC0_fifo <= 0;
 	pop_VC1_fifo <= 0;

@@ -4,6 +4,7 @@
 
 module banco_full_logic();
     wire [5:0] data_out_D0, data_out_D1, data_in,data_out_D0_synth, data_out_D1_synth;
+    wire [3:0] Umbral_Main, Umbral_VC0, Umbral_VC1,Umbral_D0, Umbral_D1;
 
 full_logic full_logic_cond(
     .clk         ( clk         ),
@@ -15,7 +16,12 @@ full_logic full_logic_cond(
     .data_out_D0 ( data_out_D0[5:0] ),
     .data_out_D1 ( data_out_D1[5:0] ),
     .error_D0    ( error_D0    ),
-    .error_D1    ( error_D1    )
+    .error_D1    ( error_D1    ),
+    .Umbral_Main   (Umbral_Main),        
+    .Umbral_VC0    (Umbral_VC0),
+    .Umbral_VC1    (Umbral_VC1),
+    .Umbral_D0    (Umbral_D0),
+    .Umbral_D1    (Umbral_D1)
 );
 
 full_logic_synth full_logic_synth_s(
@@ -28,7 +34,12 @@ full_logic_synth full_logic_synth_s(
     .data_out_D0_synth ( data_out_D0_synth[5:0] ),
     .data_out_D1_synth ( data_out_D1_synth[5:0] ),
     .error_D0    ( error_D0    ),
-    .error_D1    ( error_D1    )
+    .error_D1    ( error_D1    ),
+    .Umbral_Main   (Umbral_Main),        
+    .Umbral_VC0    (Umbral_VC0),
+    .Umbral_VC1    (Umbral_VC1),
+    .Umbral_D0    (Umbral_D0),
+    .Umbral_D1    (Umbral_D1)
 );
 
 
@@ -44,7 +55,12 @@ probador_full_logic probador_full_logic_1(
     .data_out_D0_synth ( data_out_D0_synth[5:0] ),
     .data_out_D1_synth ( data_out_D1_synth[5:0] ),
     .error_D0    ( error_D0    ),
-    .error_D1   ( error_D1   )
+    .error_D1   ( error_D1   ),
+    .Umbral_Main   (Umbral_Main),        
+    .Umbral_VC0    (Umbral_VC0),
+    .Umbral_VC1    (Umbral_VC1),
+    .Umbral_D0    (Umbral_D0),
+    .Umbral_D1    (Umbral_D1)
 );
 
 

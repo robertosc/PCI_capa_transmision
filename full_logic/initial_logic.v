@@ -12,7 +12,11 @@ module initial_logic#(
             input clk, reset, wr_enable,
             input [data_width-1:0] data_in,
             input pop_VC0_fifo, pop_VC1_fifo,
-            //input pause_vc0,pause_vc1,
+            input [3:0] Umbral_Main,
+            input [3:0] Umbral_VC0,
+            input [3:0] Umbral_VC1,
+            output error_main,
+            output empty_main_fifo,
             output full_fifo_VC0,
             output empty_fifo_VC0,
             output almost_full_fifo_VC0,
@@ -29,14 +33,17 @@ module initial_logic#(
 
 	wire  [5:0] data_out_demux_initial_vc0;
 	wire  [5:0] data_out_demux_initial_vc1;
-    wire pop_main_fifo, empty_main_fifo, valid_pop_out; 
-    wire full_fifo, empty_fifo, almost_full_fifo, almost_empty_fifo, error;
+    wire pop_main_fifo, valid_pop_out; 
+    wire full_fifo, empty_fifo, almost_full_fifo, almost_empty_fifo;
     wire [data_width-1:0] data_in_demux_initial;
     wire push_vc0,push_vc1;
 
-    main_fifo fifo_main (.clk(clk), .reset(reset), .wr_enable(wr_enable), .rd_enable(pop_main_fifo), .data_in(data_in),
-                    .full_fifo(full_fifo), .empty_fifo(empty_main_fifo), .almost_full_fifo(almost_full_fifo), 
-                    .almost_empty_fifo(almost_empty_fifo), .error(error), .data_out(data_in_demux_initial));
+    main_fifo fifo_main (.clk(clk), .reset(reset),
+                         .wr_enable(wr_enable), .rd_enable(pop_main_fifo),
+                         .data_in(data_in),    .Umbral_Main(Umbral_Main), 
+                         .full_fifo(full_fifo), .empty_fifo(empty_main_fifo),
+                          .almost_full_fifo(almost_full_fifo),.almost_empty_fifo(almost_empty_fifo),
+                           .error(error_main), .data_out(data_in_demux_initial));
 
     comb_initial comb_initial_1(.clk(clk), .reset(reset), .pause_vc0(almost_full_fifo_VC0), .pause_vc1(almost_full_fifo_VC1), .empty_main_fifo(empty_main_fifo),
                                 .pop_main_fifo(pop_main_fifo), .valid_pop_out(valid_pop_out));
@@ -47,10 +54,10 @@ module initial_logic#(
 
     VC0_fifo fifo_VC0 (.clk(clk), .reset(reset), .wr_enable(push_vc0), .rd_enable(pop_VC0_fifo), .data_in(data_out_demux_initial_vc0),
                     .full_fifo_VC0(full_fifo_VC0), .empty_fifo_VC0(empty_fifo_VC0), .almost_full_fifo_VC0(almost_full_fifo_VC0), 
-                    .almost_empty_fifo_VC0(almost_empty_fifo_VC0), .error_VC0(error_VC0), .data_out_VC0(data_out_VC0));
+                    .almost_empty_fifo_VC0(almost_empty_fifo_VC0), .error_VC0(error_VC0), .data_out_VC0(data_out_VC0), .Umbral_VC0(Umbral_VC0));
 
     VC1_fifo fifo_VC1 (.clk(clk), .reset(reset), .wr_enable(push_vc1), .rd_enable(pop_VC1_fifo), .data_in(data_out_demux_initial_vc1),
                     .full_fifo_VC1(full_fifo_VC1), .empty_fifo_VC1(empty_fifo_VC1), .almost_full_fifo_VC1(almost_full_fifo_VC1), 
-                    .almost_empty_fifo_VC1(almost_empty_fifo_VC1), .error_VC1(error_VC1), .data_out_VC1(data_out_VC1));
+                    .almost_empty_fifo_VC1(almost_empty_fifo_VC1), .error_VC1(error_VC1), .data_out_VC1(data_out_VC1), .Umbral_VC1(Umbral_VC1));
 
 endmodule

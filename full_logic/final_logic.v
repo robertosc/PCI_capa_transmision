@@ -9,6 +9,8 @@ module final_logic#(
             (input [5:0] data_out_VC0, data_out_VC1,
             input clk, reset_L, empty_fifo_VC0, empty_fifo_VC1,
             input D0_pop, D1_pop,
+            input [3:0] Umbral_D0,
+            input [3:0] Umbral_D1,
             output [5:0] data_out_D0, data_out_D1,
             output pop_VC0_fifo, pop_VC1_fifo,
             output error_D1, error_D0);
@@ -44,7 +46,8 @@ D0_fifo u_D0_fifo(
     .almost_full_fifo_D0  ( fulloralmostfull_D0  ),
     .almost_empty_fifo_D0 ( almost_empty_fifo_D0 ),
     .error_D0             ( error_D0             ),
-    .data_out_D0          ( data_out_D0          )
+    .data_out_D0          ( data_out_D0          ),
+    .Umbral_D0            (Umbral_D0)
 );
 
 D1_fifo u_D1_fifo(
@@ -58,7 +61,8 @@ D1_fifo u_D1_fifo(
     .almost_full_fifo_D1  ( fulloralmostfull_D1  ),
     .almost_empty_fifo_D1 ( almost_empty_fifo_D1 ),
     .error_D1             ( error_D1             ),
-    .data_out_D1          ( data_out_D1          )
+    .data_out_D1          ( data_out_D1          ),
+    .Umbral_D1            (Umbral_D1)
 );
 
 endmodule
