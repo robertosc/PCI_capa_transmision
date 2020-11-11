@@ -11,8 +11,8 @@ module BancoPruebas();
   wire [U_MFS-1:0] umbral_MFs;
   wire [U_VCS-1:0] umbral_VCs;
   wire [U_DS-1:0]  umbral_Ds;
-  wire [4:0] FIFO_empties;
-  wire [4:0] FIFO_errors;
+  wire empty_main_fifo, empty_fifo_VC0, empty_fifo_VC1,empty_fifo_D0,empty_fifo_D1;
+  wire error_main, error_VC0, error_VC1, error_D0, error_D1;
   wire [3:0] present_state;
   wire [3:0] next_state;
   wire [3:0] present_state_synth;
@@ -51,8 +51,17 @@ module BancoPruebas();
 		   .umbral_MFs		(umbral_MFs[U_MFS-1:0]),
 		   .umbral_VCs		(umbral_VCs[U_VCS-1:0]),
 		   .umbral_Ds		(umbral_Ds[U_DS-1:0]),
-		   .FIFO_empties	(FIFO_empties[4:0]),
-		   .FIFO_errors		(FIFO_errors[4:0]));
+		   .empty_main_fifo (empty_main_fifo),
+		   .empty_fifo_VC0 (empty_fifo_VC0),
+		   .empty_fifo_VC1 (empty_fifo_VC1),
+		   .empty_fifo_D0 (empty_fifo_D0),
+		   .empty_fifo_D1 (empty_fifo_D1),
+		   .error_main (error_main),
+		   .error_VC0 (error_VC0),
+		   .error_VC1 (error_VC1),
+		   .error_D0 (error_D0),
+		   .error_D1 (error_D1)
+			);
   state_machine_synth synth(/*AUTOINST*/
 			    // Outputs
 			    .active_out		(active_out_synth),
@@ -68,14 +77,23 @@ module BancoPruebas();
 		   		.next_umbral_VCs	(next_umbral_VCs_synth[U_VCS-1:0]),
 		   		.next_umbral_Ds		(next_umbral_Ds_synth[U_DS-1:0]),
 			    // Inputs
-			    .FIFO_empties	(FIFO_empties[4:0]),
-			    .FIFO_errors	(FIFO_errors[4:0]),
 			    .clk		(clk),
 			    .init		(init),
 			    .reset		(reset),
 			    .umbral_Ds		(umbral_Ds[3:0]),
 			    .umbral_MFs		(umbral_MFs[3:0]),
-			    .umbral_VCs		(umbral_VCs[3:0]));
+			    .umbral_VCs		(umbral_VCs[3:0]),
+				.empty_main_fifo (empty_main_fifo),
+		   		.empty_fifo_VC0 (empty_fifo_VC0),
+		   		.empty_fifo_VC1 (empty_fifo_VC1),
+		   		.empty_fifo_D0 (empty_fifo_D0),
+		   		.empty_fifo_D1 (empty_fifo_D1),
+		   		.error_main (error_main),
+		   		.error_VC0 (error_VC0),
+		   		.error_VC1 (error_VC1),
+		   		.error_D0 (error_D0),
+		   		.error_D1 (error_D1)
+		   		);
 
 
   probador probador1 (/*AUTOINST*/
@@ -86,8 +104,16 @@ module BancoPruebas();
 		      .umbral_MFs	(umbral_MFs[U_MFS-1:0]),
 		      .umbral_VCs	(umbral_VCs[U_VCS-1:0]),
 		      .umbral_Ds	(umbral_Ds[U_DS-1:0]),
-		      .FIFO_empties	(FIFO_empties[4:0]),
-		      .FIFO_errors	(FIFO_errors[4:0]),
+		      .empty_main_fifo (empty_main_fifo),
+		   	  .empty_fifo_VC0 (empty_fifo_VC0),
+		   	  .empty_fifo_VC1 (empty_fifo_VC1),
+		   	  .empty_fifo_D0 (empty_fifo_D0),
+		   	  .empty_fifo_D1 (empty_fifo_D1),
+		   	  .error_main (error_main),
+		   	  .error_VC0 (error_VC0),
+		   	  .error_VC1 (error_VC1),
+		   	  .error_D0 (error_D0),
+		   	  .error_D1 (error_D1),
 		      // Inputs
 		      .error_out	(error_out),
 			  .next_error	(next_error),

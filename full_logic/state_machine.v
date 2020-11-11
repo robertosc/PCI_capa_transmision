@@ -5,8 +5,16 @@ module state_machine(
     input [U_MFS-1:0] umbral_MFs,
     input [U_VCS-1:0] umbral_VCs,
     input [U_DS-1:0] umbral_Ds,
-    input [4:0] FIFO_empties,
-    input [4:0] FIFO_errors,
+    input empty_main_fifo,
+    input empty_fifo_VC0,
+    input empty_fifo_VC1,
+    input empty_fifo_D0,
+    input empty_fifo_D1,
+    input error_main,
+    input error_VC0,
+    input error_VC1,
+    input error_D0,
+    input error_D1,
     output reg error_out,
     output reg next_error,
     output reg active_out,
@@ -25,6 +33,8 @@ module state_machine(
     parameter U_MFS=4;
     parameter U_VCS=4;
     parameter U_DS=4;
+    reg [4:0] FIFO_empties;
+    reg [4:0] FIFO_errors;
 
     //Estados One-hot
     parameter RESET = 0;    //0000
@@ -56,6 +66,19 @@ module state_machine(
     end
 
     always @(*) begin
+        // Unir errores y empities de FIFOS:
+        FIFO_empties[0] = empty_fifo_D1; 
+        FIFO_empties[1] = empty_fifo_D0;
+        FIFO_empties[2] = empty_fifo_VC1;
+        FIFO_empties[3] = empty_fifo_VC0;
+        FIFO_empties[4] = empty_main_fifo;
+
+        FIFO_errors[0] = error_D1; 
+        FIFO_errors[1] = error_D0;
+        FIFO_errors[2] = error_VC1;
+        FIFO_errors[3] = error_VC0;
+        FIFO_errors[4] = error_main;
+        // Declarar estados:
         next_state = present_state;
         next_error = error_out;
         next_active = active_out;

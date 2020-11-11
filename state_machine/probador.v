@@ -33,9 +33,17 @@ module probador#(
     output reg init,
     output reg [U_MFS-1:0] umbral_MFs,
     output reg [U_VCS-1:0] umbral_VCs,
-    output reg [U_DS-1:0] umbral_Ds, 
-    output reg [4:0] FIFO_empties, 
-    output reg [4:0] FIFO_errors
+    output reg [U_DS-1:0] umbral_Ds,
+    output reg empty_main_fifo,
+    output reg empty_fifo_VC0,
+    output reg empty_fifo_VC1,
+    output reg empty_fifo_D0,
+    output reg empty_fifo_D1,
+    output reg error_main,
+    output reg error_VC0,
+    output reg error_VC1,
+    output reg error_D0,
+    output reg error_D1
     );
 
   initial begin
@@ -47,8 +55,16 @@ module probador#(
     umbral_MFs<=0000;
     umbral_VCs<=0000;
     umbral_Ds<=0000;
-    FIFO_empties<=00000;
-    FIFO_errors<=00000;
+    empty_main_fifo <= 0;
+    empty_fifo_VC0 <= 0;
+    empty_fifo_VC1 <= 0;
+    empty_fifo_D0 <= 0;
+    empty_fifo_D1 <= 0;
+    error_main <= 0;
+    error_VC0 <= 0;
+    error_VC1 <= 0;
+    error_D0 <= 0;
+    error_D1 <= 0;
     @(posedge clk);
     reset <= 0;
     @(posedge clk);
@@ -67,7 +83,11 @@ module probador#(
     @(posedge clk);
     @(posedge clk);
     @(posedge clk);
-    FIFO_empties<=00100;
+    empty_main_fifo <= 0;
+    empty_fifo_VC0 <= 0;
+    empty_fifo_VC1 <= 1;
+    empty_fifo_D0 <= 0;
+    empty_fifo_D1 <= 0;
     @(posedge clk);
     @(posedge clk);
     umbral_MFs<=1111;
@@ -75,7 +95,11 @@ module probador#(
     umbral_Ds<=1111;
     @(posedge clk);
     @(posedge clk);
-    FIFO_errors<=10000;
+    error_main <= 1;
+    error_VC0 <= 0;
+    error_VC1 <= 0;
+    error_D0 <= 0;
+    error_D1 <= 0;
     @(posedge clk);
     @(posedge clk);
     umbral_MFs<=1010;
