@@ -5,7 +5,7 @@ module probador_full_logic#(
             (output reg clk, reset, wr_enable,
             output reg[data_width-1:0] data_in,
             output reg D0_pop, D1_pop,
-            input [5:0] data_out_D0, data_out_D1,
+            input [5:0] data_out_D0, data_out_D1,data_out_D0_synth, data_out_D1_synth,
             input error_D0, error_D1
             );
 
