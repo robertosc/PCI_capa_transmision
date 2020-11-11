@@ -55,11 +55,11 @@ module probador#(
     umbral_MFs<=0000;
     umbral_VCs<=0000;
     umbral_Ds<=0000;
-    empty_main_fifo <= 0;
-    empty_fifo_VC0 <= 0;
-    empty_fifo_VC1 <= 0;
-    empty_fifo_D0 <= 0;
-    empty_fifo_D1 <= 0;
+    empty_main_fifo <= 1;
+    empty_fifo_VC0 <= 1;
+    empty_fifo_VC1 <= 1;
+    empty_fifo_D0 <= 1;
+    empty_fifo_D1 <= 1;
     error_main <= 0;
     error_VC0 <= 0;
     error_VC1 <= 0;

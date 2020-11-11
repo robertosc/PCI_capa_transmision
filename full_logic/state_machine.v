@@ -111,7 +111,7 @@ module state_machine(
                 end 
             IDLE: begin
                 
-                     if (!FIFO_empties) begin
+                     if (FIFO_empties == 'b11111) begin
                         next_state = IDLE;
                         next_idle = 1;
                     end

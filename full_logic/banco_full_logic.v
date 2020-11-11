@@ -5,6 +5,10 @@
 module banco_full_logic();
     wire [5:0] data_out_D0, data_out_D1, data_in,data_out_D0_synth, data_out_D1_synth;
     wire [3:0] Umbral_Main, Umbral_VC0, Umbral_VC1,Umbral_D0, Umbral_D1;
+    wire [3:0] umbral_MFs, umbral_VCs, umbral_Ds;
+    wire init,error_out,active_out,idle_out;
+    wire init_synth,error_out_synth,active_out_synth,idle_out_synth;
+    wire empty_fifo_D0, empty_fifo_D1;
 
 full_logic full_logic_cond(
     .clk         ( clk         ),
@@ -21,7 +25,16 @@ full_logic full_logic_cond(
     .Umbral_VC0    (Umbral_VC0),
     .Umbral_VC1    (Umbral_VC1),
     .Umbral_D0    (Umbral_D0),
-    .Umbral_D1    (Umbral_D1)
+    .Umbral_D1    (Umbral_D1),
+    .umbral_MFs   (umbral_MFs[3:0]),
+    .umbral_VCs   (umbral_VCs[3:0]),
+    .umbral_Ds    (umbral_Ds),
+    .init         (init),
+    .error_out    (error_out),
+    .active_out   (active_out),
+    .idle_out     (idle_out),
+    .empty_fifo_D0 (empty_fifo_D0),
+    .empty_fifo_D1 (empty_fifo_D1)
 );
 
 full_logic_synth full_logic_synth_s(
@@ -39,7 +52,16 @@ full_logic_synth full_logic_synth_s(
     .Umbral_VC0    (Umbral_VC0),
     .Umbral_VC1    (Umbral_VC1),
     .Umbral_D0    (Umbral_D0),
-    .Umbral_D1    (Umbral_D1)
+    .Umbral_D1    (Umbral_D1),
+    .umbral_MFs   (umbral_MFs[3:0]),
+    .umbral_VCs   (umbral_VCs[3:0]),
+    .umbral_Ds    (umbral_Ds),
+    .init         (init),
+    .error_out    (error_out_synth),
+    .active_out   (active_out_synth),
+    .idle_out     (idle_out_synth),
+    .empty_fifo_D0 (empty_fifo_D0),
+    .empty_fifo_D1 (empty_fifo_D1)
 );
 
 
@@ -60,7 +82,19 @@ probador_full_logic probador_full_logic_1(
     .Umbral_VC0    (Umbral_VC0),
     .Umbral_VC1    (Umbral_VC1),
     .Umbral_D0    (Umbral_D0),
-    .Umbral_D1    (Umbral_D1)
+    .Umbral_D1    (Umbral_D1),
+    .umbral_MFs   (umbral_MFs[3:0]),
+    .umbral_VCs   (umbral_VCs[3:0]),
+    .umbral_Ds    (umbral_Ds),
+    .init         (init),
+    .error_out    (error_out),
+    .active_out   (active_out),
+    .idle_out     (idle_out),
+    .error_out_synth    (error_out_synth),
+    .active_out_synth   (active_out_synth),
+    .idle_out_synth     (idle_out_synth),
+    .empty_fifo_D0 (empty_fifo_D0),
+    .empty_fifo_D1 (empty_fifo_D1)
 );
 
 

@@ -13,7 +13,7 @@ module final_logic#(
             input [3:0] Umbral_D1,
             output [5:0] data_out_D0, data_out_D1,
             output pop_VC0_fifo, pop_VC1_fifo,
-            output error_D1, error_D0);
+            output error_D1, error_D0, empty_fifo_D1, empty_fifo_D0);
 
 wire fulloralmostfull_D0, fulloralmostfull_D1, D0_push, D1_push;
 wire [5:0] D0_out, D1_out;
