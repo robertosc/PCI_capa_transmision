@@ -47,6 +47,7 @@ wire [3:0] next_umbral_Ds;
     initial_logic initial_logic_1(
         .clk                   ( clk                   ),
         .reset                 ( reset                 ),
+        .init                  ( init                 ),
         .wr_enable             ( wr_enable             ),
         .data_in               ( data_in[5:0]          ),
         .Umbral_Main 	       (Umbral_Main),
@@ -75,6 +76,7 @@ wire [3:0] next_umbral_Ds;
     .data_out_VC1   ( data_out_VC1[5:0]    ),
     .clk            ( clk            ),
     .reset_L        ( reset          ),
+    .init           (init),
     .Umbral_D0	    (Umbral_D0),
 	.Umbral_D1 	    (Umbral_D1),
     .empty_fifo_VC0 ( empty_fifo_VC0 ),

@@ -4,7 +4,7 @@ module VC0_fifo #(
             )
             (
             input clk, reset, wr_enable, rd_enable,
-            input [data_width-1:0] data_in,
+            input [data_width-1:0] data_in, init,
             input [3:0] Umbral_VC0,
             output full_fifo_VC0,
             output empty_fifo_VC0,
@@ -32,7 +32,10 @@ module VC0_fifo #(
        if (reset == 0) begin
        wr_ptr <= 0;
        end
-       else begin
+       if (init == 0) begin
+       wr_ptr <= 0;
+       end
+       if (reset==1 && init==1) begin
            if (wr_enable == 1) begin
                 mem[wr_ptr] <= data_in;
                 wr_ptr <= wr_ptr+1;
@@ -46,7 +49,11 @@ module VC0_fifo #(
        rd_ptr <= 0;
        data_out_VC0 <=0;
        end
-       else begin
+       if (init == 0) begin
+       rd_ptr <= 0;
+       data_out_VC0 <=0;
+       end
+       if (reset==1 && init==1) begin
             if(rd_enable == 1) begin
                 data_out_VC0 <= mem[rd_ptr];
                 rd_ptr <= rd_ptr+1;
@@ -60,7 +67,10 @@ module VC0_fifo #(
        if (reset == 0) begin
             cnt <= 0;
        end
-       else begin
+       if (init == 0) begin
+            cnt <= 0;
+       end
+       if (reset==1 && init==1) begin
            case ({wr_enable, rd_enable})
                2'b00: cnt <= cnt;
                2'b01: cnt <= cnt-1;

@@ -7,7 +7,7 @@ module final_logic#(
 			parameter address_width = 2
             )
             (input [5:0] data_out_VC0, data_out_VC1,
-            input clk, reset_L, empty_fifo_VC0, empty_fifo_VC1,
+            input clk, reset_L, empty_fifo_VC0, empty_fifo_VC1,init,
             input D0_pop, D1_pop,
             input [3:0] Umbral_D0,
             input [3:0] Umbral_D1,
@@ -38,6 +38,7 @@ arbitro_enrutamiento u_arbitro_enrutamiento(
 D0_fifo u_D0_fifo(
     .clk                  ( clk                  ),
     .reset_L              ( reset_L              ),
+    .init                 (init),
     .wr_enable            ( D0_push              ),
     .rd_enable            ( D0_pop               ),
     .data_in              ( D0_out [5:0]         ),
@@ -53,6 +54,7 @@ D0_fifo u_D0_fifo(
 D1_fifo u_D1_fifo(
     .clk                  ( clk                  ),
     .reset_L              ( reset_L              ),
+    .init                 (init),
     .wr_enable            ( D1_push              ),
     .rd_enable            ( D1_pop               ),
     .data_in              ( D1_out [5:0]         ),
