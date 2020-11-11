@@ -76,7 +76,6 @@ initial begin
 
 	@(posedge clk);
 	data_in <= 6'b100100;
-    D0_pop <= 1;
 /////////////
 	@(posedge clk);
 	data_in <= 6'b100100;
@@ -85,6 +84,7 @@ initial begin
 	data_in <= 6'b100100;
 ////////////
 	@(posedge clk);
+    D0_pop <= 1;
     wr_enable <= 0;
 
 	@(posedge clk);

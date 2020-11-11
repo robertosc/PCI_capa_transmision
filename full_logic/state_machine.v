@@ -98,7 +98,8 @@ module state_machine(
             INIT: begin
 
                     if (init) begin
-                        next_state = IDLE;  
+                        next_state = IDLE;
+                        next_idle = 1;
                     end
                     else if (!reset) next_state = RESET;  
                     else begin
