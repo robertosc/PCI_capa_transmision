@@ -3,7 +3,7 @@ module main_fifo #(
 			parameter address_width = 2
             )
             (
-            input clk, reset, wr_enable, rd_enable,init,
+            input clk, reset, wr_enable, rd_enable, init,
             input [data_width-1:0] data_in,
             input [3:0] Umbral_Main,
             output full_fifo,

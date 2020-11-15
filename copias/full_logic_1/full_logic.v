@@ -1,7 +1,6 @@
-`include "./initial_logic/initial_logic.v"
-`include "./final_logic/final_logic.v"
-`include "./state_machine/state_machine.v"
-`include "./lib/cmos_cells.v"
+`include "initial_logic.v"
+`include "final_logic.v"
+`include "state_machine.v"
 
 module full_logic#(
             parameter data_width = 6,

@@ -1,4 +1,4 @@
-read_verilog full_logic.v 
+read_verilog ./full_logic/full_logic.v 
 
 hierarchy -check -top full_logic
 
@@ -6,10 +6,10 @@ proc; opt; memory; opt; fsm; opt;
 
 techmap; opt;
 
-dfflibmap -liberty cmos_cells.lib
+dfflibmap -liberty ./lib/cmos_cells.lib
 
-abc -liberty cmos_cells.lib
+abc -liberty ./lib/cmos_cells.lib
 
 clean
 
-write_verilog full_logic_synth.v
+write_verilog ./full_logic/full_logic_synth.v

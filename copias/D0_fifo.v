@@ -3,9 +3,8 @@ module D0_fifo #(
 			parameter address_width = 2
             )
             (
-            input clk, reset_L, wr_enable, rd_enable,init,
+            input clk, reset_L, wr_enable, rd_enable,
             input [data_width-1:0] data_in,
-            input [3:0] Umbral_D0,
             output full_fifo_D0,
             output empty_fifo_D0,
             output almost_full_fifo_D0,
@@ -23,8 +22,8 @@ module D0_fifo #(
     assign full_fifo_D0 = (cnt == size_fifo);
     assign empty_fifo_D0 = (cnt == 0);  
     assign error_D0 = (cnt > size_fifo);
-    assign almost_empty_fifo_D0 = (cnt == Umbral_D0);
-    assign almost_full_fifo_D0 = (cnt == size_fifo-Umbral_D0);
+    assign almost_empty_fifo_D0 = (cnt == 1);
+    assign almost_full_fifo_D0 = (cnt == size_fifo-1);
 
     integer i;
 // WRITE //
@@ -35,13 +34,7 @@ module D0_fifo #(
 				mem[i] <= 0;
 			end
        end
-       if (init == 0) begin
-            wr_ptr <= 0;
-            for(i = 0; i<2**address_width; i=i+1) begin
-				mem[i] <= 0;
-			end
-       end
-       if (reset_L == 1 && init == 1) begin
+       else begin
            if (wr_enable == 1) begin
                 mem[wr_ptr] <= data_in;
                 wr_ptr <= wr_ptr+1;
@@ -55,11 +48,7 @@ module D0_fifo #(
        rd_ptr <= 0;
        data_out_D0 <=0;
        end
-       if (init == 0) begin
-       rd_ptr <= 0;
-       data_out_D0 <=0;
-       end
-       if (reset_L==1 && init == 1) begin
+       else begin
             if(rd_enable == 1) begin
                 data_out_D0 <= mem[rd_ptr];
                 rd_ptr <= rd_ptr+1;
@@ -73,10 +62,7 @@ module D0_fifo #(
        if (reset_L == 0) begin
             cnt <= 0;
        end
-       if (init == 0) begin
-            cnt <= 0;
-       end
-       if (reset_L==1 && init == 1) begin
+       else begin
            case ({wr_enable, rd_enable})
                2'b00: cnt <= cnt;
                2'b01: cnt <= cnt-1;

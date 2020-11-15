@@ -98,8 +98,7 @@ module state_machine(
             INIT: begin
 
                     if (init) begin
-                        next_state = IDLE;
-                        
+                        next_state = IDLE;  
                     end
                     else if (!reset) next_state = RESET;  
                     else begin
@@ -111,10 +110,10 @@ module state_machine(
 
                 end 
             IDLE: begin
-                    next_idle = 1;
-                    if (FIFO_empties == 'b11111) begin
+                
+                     if (FIFO_empties == 'b11111) begin
                         next_state = IDLE;
-                        
+                        next_idle = 1;
                     end
                     else if (!reset) next_state = RESET;
                     else begin

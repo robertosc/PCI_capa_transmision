@@ -49,6 +49,8 @@ initial begin
     @(posedge clk);
     wr_enable <= 1;
 	reset <= 1;
+    wr_enable <= 1;
+	reset <= 1;
 	data_in <= 6'b000000;
 
 	@(posedge clk);
@@ -83,7 +85,6 @@ initial begin
 	data_in <= 6'b100011;
 
 	@(posedge clk);
-
 
 	$finish;
 	end

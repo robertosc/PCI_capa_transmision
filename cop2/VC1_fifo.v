@@ -20,8 +20,6 @@ module VC1_fifo #(
     reg [address_width-1:0] rd_ptr;
     reg [address_width:0] cnt;
 
-    integer i;
-    
     assign full_fifo_VC1 = (cnt == size_fifo);
     assign empty_fifo_VC1 = (cnt == 0);  
     assign error_VC1 = (cnt > size_fifo);
@@ -32,10 +30,7 @@ module VC1_fifo #(
 // WRITE //
     always @(posedge clk) begin
        if (reset == 0) begin
-            wr_ptr <= 0;
-       		for(i = 0; i<2**address_width; i=i+1) begin
-				mem[i] <= 0;
-			end
+       wr_ptr <= 0;
        end
        if (init == 0) begin
        wr_ptr <= 0;

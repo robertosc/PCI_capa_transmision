@@ -1,6 +1,6 @@
-`include "./full_logic/full_logic.v"
-`include "./full_logic/full_logic_synth.v"
-`include "./full_logic/probador_full_logic.v"
+`include "full_logic.v"
+`include "full_logic_synth.v"
+`include "probador_full_logic.v"
 
 module banco_full_logic();
     wire [5:0] data_out_D0, data_out_D1, data_in,data_out_D0_synth, data_out_D1_synth;
