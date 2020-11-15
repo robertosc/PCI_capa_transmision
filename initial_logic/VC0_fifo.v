@@ -31,15 +31,13 @@ module VC0_fifo #(
 
 // WRITE //
     always @(posedge clk) begin
-       if (reset == 0 || init == 0) begin
-        	for(i = 0; i<2**address_width; i=i+1) begin
+       if (reset == 0) begin
+            wr_ptr <= 0;
+       		for(i = 0; i<2**address_width; i=i+1) begin
 				mem[i] <= 0;
 			end
-            wr_ptr <= 0;
-            rd_ptr <= 0;
-            data_out_VC0 <=0;
        end
-       if (reset==1 && init==1) begin
+       if (reset == 1 && init == 1) begin
            if (wr_enable == 1) begin
                 mem[wr_ptr] <= data_in;
                 wr_ptr <= wr_ptr+1;
@@ -49,8 +47,12 @@ module VC0_fifo #(
 
 // READ //
     always @(posedge clk) begin
+       if (reset == 0) begin
+       rd_ptr <= 0;
+       data_out_VC0 <=0;
+       end
        if (reset==1 && init==1) begin
-            if(rd_enable == 1) begin
+           if (rd_enable == 1) begin
                 data_out_VC0 <= mem[rd_ptr];
                 rd_ptr <= rd_ptr+1;
            end
@@ -60,7 +62,7 @@ module VC0_fifo #(
 
 //COUNTERS//
     always @(posedge clk) begin
-       if (reset == 0 || init == 0) begin
+       if (reset == 0) begin
             cnt <= 0;
        end
        if (reset==1 && init==1) begin
@@ -73,7 +75,6 @@ module VC0_fifo #(
            endcase
            end
        end  
-
   
        
 endmodule

@@ -37,9 +37,6 @@ module VC1_fifo #(
 				mem[i] <= 0;
 			end
        end
-       if (init == 0) begin
-       wr_ptr <= 0;
-       end
        if (reset == 1 && init == 1) begin
            if (wr_enable == 1) begin
                 mem[wr_ptr] <= data_in;
@@ -51,10 +48,6 @@ module VC1_fifo #(
 // READ //
     always @(posedge clk) begin
        if (reset == 0) begin
-       rd_ptr <= 0;
-       data_out_VC1 <=0;
-       end
-       if (init == 0) begin
        rd_ptr <= 0;
        data_out_VC1 <=0;
        end
@@ -70,9 +63,6 @@ module VC1_fifo #(
 //COUNTERS//
     always @(posedge clk) begin
        if (reset == 0) begin
-            cnt <= 0;
-       end
-       if (init == 0) begin
             cnt <= 0;
        end
        if (reset==1 && init==1) begin

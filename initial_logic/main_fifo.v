@@ -26,14 +26,15 @@ module main_fifo #(
     assign almost_empty_fifo = (cnt == Umbral_Main);
     assign almost_full_fifo = (cnt == size_fifo-Umbral_Main);
 
+    integer i;
 
 // WRITE //
     always @(posedge clk) begin
-       if (reset == 0) begin
-       wr_ptr <= 0;
-       end
-       if (init == 0) begin
-       wr_ptr <= 0;
+       if (reset == 0 || init == 0) begin
+            wr_ptr <= 0;
+       		for(i = 0; i<2**address_width; i=i+1) begin
+				mem[i] <= 0;
+			end
        end
        if (reset == 1 && init==1) begin
            if (wr_enable == 1) begin
@@ -45,11 +46,7 @@ module main_fifo #(
 
 // READ //
     always @(posedge clk) begin
-       if (reset == 0) begin
-       rd_ptr <= 0;
-       data_out <=0;
-       end
-       if (init == 0) begin
+       if (reset == 0 || init == 0) begin
        rd_ptr <= 0;
        data_out <=0;
        end
@@ -64,10 +61,7 @@ module main_fifo #(
 
 //COUNTERS//
     always @(posedge clk) begin
-       if (reset == 0) begin
-            cnt <= 0;
-       end
-       if (init == 0) begin
+       if (reset == 0 || init == 0) begin
             cnt <= 0;
        end
        if (reset==1 && init==1) begin

@@ -82,7 +82,9 @@ initial begin
 	@(posedge clk);
 	data_in <= 6'b100011;
 
-	@(posedge clk);
+	repeat (10) begin
+		@(posedge clk);
+	end
 
 
 	$finish;
