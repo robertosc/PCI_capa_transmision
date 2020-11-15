@@ -36,35 +36,39 @@ module VC0_fifo #(
        		rd_ptr <= 4'b0;
             data_out_VC0 <=0;
             cnt <= 0;
+            for(i = 0; i<2**address_width; i=i+1) begin
+				mem[i] <= 0;
+			end
        end
-       if (reset == 1 && init == 1 && ~full_fifo_VC0_reg) begin
-           if (wr_enable == 1) begin
-                mem[wr_ptr] <= data_in;
-                wr_ptr <= wr_ptr+1;
-           end
-           
-           if (rd_enable == 1) begin
-                data_out_VC0 <= mem[rd_ptr];
-                rd_ptr <= rd_ptr+1;
-           end
-           else data_out_VC0 <=0;
-           
-           case ({wr_enable, rd_enable})
-               2'b00: cnt <= cnt;
-               2'b01: cnt <= cnt-1;
-               2'b10: cnt <= cnt+1;
-               2'b11: cnt <= cnt;
-               default: cnt <= cnt;
-           endcase
-       end
-       else begin
-            if (rd_enable == 1) begin
-                data_out_VC0 <= mem[rd_ptr];
-                rd_ptr <= rd_ptr+1;
-                cnt <= cnt-1;
-            end
-       end
+        else begin
+            if (reset == 1 && init == 1 && ~full_fifo_VC0_reg) begin
+                if (wr_enable == 1) begin
+                     mem[wr_ptr] <= data_in;
+                     wr_ptr <= wr_ptr+1;
+                end
 
+                if (rd_enable == 1) begin
+                     data_out_VC0 <= mem[rd_ptr];
+                     rd_ptr <= rd_ptr+1;
+                end
+                else data_out_VC0 <=0;
+
+                case ({wr_enable, rd_enable})
+                    2'b00: cnt <= cnt;
+                    2'b01: cnt <= cnt-1;
+                    2'b10: cnt <= cnt+1;
+                    2'b11: cnt <= cnt;
+                    default: cnt <= cnt;
+                endcase
+            end
+            if (reset == 1 && init == 1 && full_fifo_VC0_reg) begin
+                 if (rd_enable == 1) begin
+                     data_out_VC0 <= mem[rd_ptr];
+                     rd_ptr <= rd_ptr+1;
+                     cnt <= cnt-1;
+                 end
+            end
+        end
     end
        
 endmodule

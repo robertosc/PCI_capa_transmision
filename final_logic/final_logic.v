@@ -16,7 +16,7 @@ module final_logic#(
             output error_D1, error_D0, empty_fifo_D1, empty_fifo_D0);
 
 wire D0_push, D1_push;
-wire [5:0] D0_out, D1_out;
+wire [5:0] arbitro_D0_out, arbitro_D1_out;
 
 arbitro_enrutamiento u_arbitro_enrutamiento(
     .VC0       ( data_out_VC0      ),
@@ -29,8 +29,8 @@ arbitro_enrutamiento u_arbitro_enrutamiento(
     .D0_pause  ( full_fifo_D0 || almost_full_fifo_D0),
     .VC1_pop   (pop_VC1_fifo       ),
     .VC0_pop   (pop_VC0_fifo       ),
-    .D0_out    ( D0_out [5:0]      ),
-    .D1_out    ( D1_out [5:0]      ),
+    .arbitro_D0_out    ( arbitro_D0_out [5:0]      ),
+    .arbitro_D1_out    ( arbitro_D1_out [5:0]      ),
     .D0_push   ( D0_push           ),
     .D1_push   ( D1_push           )
 );
@@ -41,7 +41,7 @@ D0_fifo u_D0_fifo(
     .init                 (init),
     .wr_enable            ( D0_push              ),
     .rd_enable            ( D0_pop               ),
-    .data_in              ( D0_out [5:0]         ),
+    .data_in              ( arbitro_D0_out [5:0]         ),
     .full_fifo_D0         ( full_fifo_D0         ),
     .empty_fifo_D0        ( empty_fifo_D0        ),
     .almost_full_fifo_D0  ( almost_full_fifo_D0  ),
@@ -57,7 +57,7 @@ D1_fifo u_D1_fifo(
     .init                 (init),
     .wr_enable            ( D1_push              ),
     .rd_enable            ( D1_pop               ),
-    .data_in              ( D1_out [5:0]         ),
+    .data_in              ( arbitro_D1_out [5:0]         ),
     .full_fifo_D1         ( full_fifo_D1         ),
     .empty_fifo_D1        ( empty_fifo_D1        ),
     .almost_full_fifo_D1  ( almost_full_fifo_D1  ),

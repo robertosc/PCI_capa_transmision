@@ -6,7 +6,7 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1,
                             input clk, reset_L,
                             input VC0_empty, VC1_empty, D1_pause, D0_pause,
                             output VC1_pop, VC0_pop, D0_push, D1_push,
-                            output [5:0] D0_out, D1_out);
+                            output [5:0] arbitro_D0_out, arbitro_D1_out);
 
     wire pop_delay_VC0, pop_delay_VC1;
 
@@ -20,8 +20,8 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1,
         .VC0_empty (VC0_empty),
         .VC1_empty (VC1_empty),
         //.mux_arbitro_1 ( mux_arbitro_1 [5:0] ),
-        .D0_out        ( D0_out       [5:0] ),
-        .D1_out        ( D1_out       [5:0] ),
+        .arbitro_D0_out        ( arbitro_D0_out       [5:0] ),
+        .arbitro_D1_out        ( arbitro_D1_out       [5:0] ),
         .D0_push       ( D0_push ),
         .D1_push       ( D1_push )
     );
