@@ -19,6 +19,7 @@ module VC0_fifo #(
     reg [address_width-1:0] wr_ptr;
     reg [address_width-1:0] rd_ptr;
     reg [address_width:0] cnt;
+    wire full_fifo_VC0_reg;
 
     integer i;
 
@@ -27,7 +28,7 @@ module VC0_fifo #(
     assign error_VC0 = (cnt > size_fifo);
     assign almost_empty_fifo_VC0 = (cnt == Umbral_VC0);
     assign almost_full_fifo_VC0 = (cnt == size_fifo-Umbral_VC0);
-
+    assign full_fifo_VC0_reg = full_fifo_VC0;
 
     always @(posedge clk) begin
        if (reset == 0 || init == 0) begin
@@ -36,7 +37,7 @@ module VC0_fifo #(
             data_out_VC0 <=0;
             cnt <= 0;
        end
-       if (reset == 1 && init == 1) begin
+       if (reset == 1 && init == 1 && ~full_fifo_VC0_reg) begin
            if (wr_enable == 1) begin
                 mem[wr_ptr] <= data_in;
                 wr_ptr <= wr_ptr+1;
@@ -55,7 +56,15 @@ module VC0_fifo #(
                2'b11: cnt <= cnt;
                default: cnt <= cnt;
            endcase
-       end  
+       end
+       else begin
+            if (rd_enable == 1) begin
+                data_out_VC0 <= mem[rd_ptr];
+                rd_ptr <= rd_ptr+1;
+                cnt <= cnt-1;
+            end
+       end
+
     end
        
 endmodule
