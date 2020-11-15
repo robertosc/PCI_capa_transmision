@@ -33,9 +33,9 @@ module VC1_fifo #(
     always @(posedge clk) begin
        if (reset == 0) begin
             wr_ptr <= 0;
-       		for(i = 0; i<2**address_width; i=i+1) begin
-				mem[i] <= 0;
-			end
+       		//for(i = 0; i<2**address_width; i=i+1) begin
+			//	mem[i] <= 0;
+			//end
        end
        if (reset == 1 && init == 1) begin
            if (wr_enable == 1) begin

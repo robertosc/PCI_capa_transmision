@@ -60,4 +60,4 @@ full_logic_make:
 	iverilog -o $(FULL)prueba $(FULL)banco_full_logic.v
 	vvp $(FULL)prueba
 	gtkwave prueba_full_logic.vcd
-	rm $(FULL)prueba prueba_full_logic.vcd
+	#rm $(FULL)prueba prueba_full_logic.vcd
