@@ -5,11 +5,6 @@ module probador_full_logic#(
             (output reg clk, reset, wr_enable,
             output reg[data_width-1:0] data_in,
             output reg D0_pop, D1_pop,
-			output reg [3:0] Umbral_Main,
-			output reg [3:0] Umbral_VC0,
-			output reg [3:0] Umbral_VC1,
-			output reg [3:0] Umbral_D0,
-			output reg [3:0] Umbral_D1,
 			output reg init,
             output reg [3:0] umbral_MFs,
             output reg [3:0] umbral_VCs,
@@ -34,15 +29,10 @@ initial begin
 	data_in <= 0;
     D0_pop <= 0;
     D1_pop <= 0;
-	Umbral_Main <= 1;
-	Umbral_VC0 <= 1;
-	Umbral_VC1 <= 1;
-	Umbral_D0 <= 2;
-	Umbral_D1 <= 2;
 	init<=0;
-	umbral_MFs [3:0] <= 1 ;
-    umbral_VCs [3:0] <= 1 ;
-    umbral_Ds  [3:0] <= 1 ;
+	umbral_MFs [3:0] <= 5 ;
+    umbral_VCs [3:0] <= 4 ;
+    umbral_Ds  [3:0] <= 3 ;
 
 	@(posedge clk);
 	@(posedge clk);
