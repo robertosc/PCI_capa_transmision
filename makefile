@@ -57,6 +57,10 @@ full_logic_make:
 	sed -i 's/data_out_demux_initial_synth_vc0/data_out_demux_initial_vc0/g' $(FULL)full_logic_synth.v
 	sed -i 's/data_out_demux_initial_synth_vc1/data_out_demux_initial_vc1/g' $(FULL)full_logic_synth.v
 	sed -i 's/empty_main_fifo_synth/empty_main_fifo/g' $(FULL)full_logic_synth.v
+	sed -i 's/empty_fifo_D0/empty_fifo_D0_synth/g' $(FULL)full_logic_synth.v
+	sed -i 's/empty_fifo_D1/empty_fifo_D1_synth/g' $(FULL)full_logic_synth.v
+	sed -i 's/error_D0/error_D0_synth/g' $(FULL)full_logic_synth.v
+	sed -i 's/error_D1/error_D1_synth/g' $(FULL)full_logic_synth.v
 	iverilog -o $(FULL)prueba $(FULL)banco_full_logic.v
 	vvp $(FULL)prueba
 	gtkwave prueba_full_logic.vcd

@@ -26,7 +26,7 @@ module main_fifo #(
     assign error = (cnt > size_fifo);
     assign almost_empty_fifo = (cnt == Umbral_Main);
     assign almost_full_fifo = (cnt == size_fifo-Umbral_Main);
-
+    assign full_fifo_main_reg = full_fifo;
     integer i;
 
 // WRITE //
@@ -53,21 +53,16 @@ module main_fifo #(
                 end
                 else data_out <=0;
 
-                case ({wr_enable, rd_enable})
-                    2'b00: cnt <= cnt;
-                    2'b01: cnt <= cnt-1;
-                    2'b10: cnt <= cnt+1;
-                    2'b11: cnt <= cnt;
-                    default: cnt <= cnt;
-                endcase
             end
-            if (reset == 1 && init == 1 && full_fifo_main_reg) begin
-                 if (rd_enable == 1) begin
-                     data_out <= mem[rd_ptr];
-                     rd_ptr <= rd_ptr+1;
-                     cnt <= cnt-1;
-                 end
+            else if (reset == 1 && init == 1 && full_fifo_main_reg) begin
+                if (rd_enable == 1) begin
+                    data_out <= mem[rd_ptr];
+                    rd_ptr <= rd_ptr+1;
+                end
             end
+            if (wr_enable && ~rd_enable && ~full_fifo_main_reg) cnt <= cnt+1'b1;
+            else if (~wr_enable && rd_enable) cnt <= cnt-1'b1;
+
         end
     end
        

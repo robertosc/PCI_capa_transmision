@@ -16,13 +16,14 @@ module probador_full_logic#(
             output reg [3:0] umbral_Ds,
             input [5:0] data_out_D0, data_out_D1,data_out_D0_synth, data_out_D1_synth,
 			input empty_fifo_D0, empty_fifo_D1,
-            input error_D0, error_D1,
+            input error_D0, error_D1, error_D0_synth, error_D1_synth,
 			input error_out,
             input active_out,
             input idle_out,
 			input error_out_synth,
             input active_out_synth,
-            input idle_out_synth
+            input idle_out_synth,
+			input empty_fifo_D0_synth, empty_fifo_D1_synth
             );
 
 initial begin

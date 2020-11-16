@@ -53,21 +53,23 @@ module VC0_fifo #(
                 end
                 else data_out_VC0 <=0;
 
-                case ({wr_enable, rd_enable})
-                    2'b00: cnt <= cnt;
-                    2'b01: cnt <= cnt-1;
-                    2'b10: cnt <= cnt+1;
-                    2'b11: cnt <= cnt;
-                    default: cnt <= cnt;
-                endcase
+                //case ({wr_enable, rd_enable})
+                //    2'b00: cnt <= cnt;
+                //    2'b01: cnt <= cnt-1;
+                //    2'b10: cnt <= cnt+1;
+                //    2'b11: cnt <= cnt;
+                //    default: cnt <= cnt;
+                //endcase
             end
-            if (reset == 1 && init == 1 && full_fifo_VC0_reg) begin
+            else if (reset == 1 && init == 1 && full_fifo_VC0_reg) begin
                  if (rd_enable == 1) begin
                      data_out_VC0 <= mem[rd_ptr];
                      rd_ptr <= rd_ptr+1;
                      cnt <= cnt-1;
                  end
             end
+            if (wr_enable && ~rd_enable && ~full_fifo_VC0_reg) cnt <= cnt+1'b1;
+            else if (~wr_enable && rd_enable) cnt <= cnt-1'b1;
         end
     end
        

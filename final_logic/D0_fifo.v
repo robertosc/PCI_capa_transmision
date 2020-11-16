@@ -26,7 +26,7 @@ module D0_fifo #(
     assign error_D0 = (cnt > size_fifo);
     assign almost_empty_fifo_D0 = (cnt == Umbral_D0);
     assign almost_full_fifo_D0 = (cnt == size_fifo-Umbral_D0);
-
+    assign  full_fifo_D0_reg = full_fifo_D0;
     integer i;
 // WRITE //
     always @(posedge clk) begin
