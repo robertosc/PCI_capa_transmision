@@ -37,8 +37,8 @@ initial begin
 	Umbral_Main <= 1;
 	Umbral_VC0 <= 1;
 	Umbral_VC1 <= 1;
-	Umbral_D0 <= 1;
-	Umbral_D1 <= 1;
+	Umbral_D0 <= 2;
+	Umbral_D1 <= 2;
 	init<=0;
 	umbral_MFs [3:0] <= 1 ;
     umbral_VCs [3:0] <= 1 ;
@@ -65,13 +65,13 @@ initial begin
 /////////////
 	@(posedge clk);
     wr_enable <= 1;
-	data_in <= 6'b000100;
+	data_in <= 6'b000110;
 
 	@(posedge clk);
 	data_in <= 6'b000100;
 
 	@(posedge clk);
-	data_in <= 6'b000100;
+	data_in <= 6'b000101;
 
 	@(posedge clk);
 	data_in <= 6'b000100;

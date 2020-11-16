@@ -11,7 +11,8 @@ module VC1_fifo #(
             output almost_full_fifo_VC1,
             output almost_empty_fifo_VC1,
             output error_VC1,
-            output reg [data_width-1:0] data_out_VC1
+            output reg [data_width-1:0] data_out_VC1,
+            output reg [data_width-1:0] data_arbitro_VC1
             );
 
     parameter size_fifo = 2**address_width;
@@ -63,13 +64,15 @@ module VC1_fifo #(
             end
             if (reset == 1 && init == 1 && full_fifo_VC1_reg) begin
                  if (rd_enable == 1) begin
-                     data_out_VC1 <= mem[rd_ptr];
-                     rd_ptr <= rd_ptr+1;
-                     cnt <= cnt-1;
+                    data_out_VC1 <= mem[rd_ptr];
+                    rd_ptr <= rd_ptr+1;
+                    cnt <= cnt-1;
                  end
             end
             if (wr_enable && ~rd_enable && ~full_fifo_VC1_reg) cnt <= cnt+1'b1;
             else if (~wr_enable && rd_enable) cnt <= cnt-1'b1;
+
+            data_arbitro_VC1 <= mem[rd_ptr];
         end
     end
 

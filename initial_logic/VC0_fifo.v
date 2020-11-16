@@ -11,7 +11,8 @@ module VC0_fifo #(
             output almost_full_fifo_VC0,
             output almost_empty_fifo_VC0,
             output error_VC0,
-            output reg [data_width-1:0] data_out_VC0
+            output reg [data_width-1:0] data_out_VC0,
+            output reg [data_width-1:0] data_arbitro_VC0
             );
 
     parameter size_fifo = 2**address_width;
@@ -53,13 +54,7 @@ module VC0_fifo #(
                 end
                 else data_out_VC0 <=0;
 
-                //case ({wr_enable, rd_enable})
-                //    2'b00: cnt <= cnt;
-                //    2'b01: cnt <= cnt-1;
-                //    2'b10: cnt <= cnt+1;
-                //    2'b11: cnt <= cnt;
-                //    default: cnt <= cnt;
-                //endcase
+
             end
             else if (reset == 1 && init == 1 && full_fifo_VC0_reg) begin
                  if (rd_enable == 1) begin
@@ -70,6 +65,9 @@ module VC0_fifo #(
             end
             if (wr_enable && ~rd_enable && ~full_fifo_VC0_reg) cnt <= cnt+1'b1;
             else if (~wr_enable && rd_enable) cnt <= cnt-1'b1;
+
+
+            data_arbitro_VC0 <= mem[rd_ptr]; //Se saca el siguiente dato para ver si es neceario pushearlo al arbitro
         end
     end
        
