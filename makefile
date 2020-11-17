@@ -61,6 +61,8 @@ full_logic_make:
 	sed -i 's/empty_fifo_D1/empty_fifo_D1_synth/g' $(FULL)full_logic_synth.v
 	sed -i 's/error_D0/error_D0_synth/g' $(FULL)full_logic_synth.v
 	sed -i 's/error_D1/error_D1_synth/g' $(FULL)full_logic_synth.v
+	sed -i 's/retraso2/retraso2_synth/g' $(FULL)full_logic_synth.v
+	sed -i 's/retraso1/retraso1_synth/g' $(FULL)full_logic_synth.v
 	iverilog -o $(FULL)prueba $(FULL)banco_full_logic.v
 	vvp $(FULL)prueba
 	gtkwave prueba_full_logic.vcd

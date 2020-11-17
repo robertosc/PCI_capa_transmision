@@ -1,16 +1,36 @@
 `include "./arbitro_muxes/arbitro_mux.v"
 `include "./arbitro_muxes/logica_pops.v"
+`include "./arbitro_muxes/retraso1.v"
 
 
 module arbitro_enrutamiento(input [5:0]VC0, VC1, data_arbitro_VC0, data_arbitro_VC1,
                             input clk, reset_L, almost_full_fifo_D0, almost_full_fifo_D1, full_fifo_D0, full_fifo_D1,
-                            input VC0_empty, VC1_empty, D1_pause, D0_pause,
+                            input VC0_empty, VC1_empty,
                             output VC1_pop, VC0_pop, D0_push, D1_push,
                             output [5:0] arbitro_D0_out, arbitro_D1_out);
 
     wire pop_delay_VC0, pop_delay_VC1;
+    wire VC0_empty_retrasado, VC1_empty_retrasado;
+    wire  [5:0] VC0_retrasado;
+	wire  [5:0] VC1_retrasado;
 
     arbitro_mux u_arbitro_muxes(
+        .reset_L       ( reset_L       ),
+        .clk           ( clk           ),
+        .VC0           ( VC0_retrasado [5:0]          ),
+        .VC1           ( VC1_retrasado [5:0]          ),
+        .pop_delay_VC0 ( pop_delay_VC0 ),
+        .pop_delay_VC1 ( pop_delay_VC1 ),
+        .VC0_empty (VC0_empty_retrasado),
+        .VC1_empty (VC1_empty_retrasado),
+        //.mux_arbitro_1 ( mux_arbitro_1 [5:0] ),
+        .arbitro_D0_out        ( arbitro_D0_out       [5:0] ),
+        .arbitro_D1_out        ( arbitro_D1_out       [5:0] ),
+        .D0_push       ( D0_push ),
+        .D1_push       ( D1_push )
+    );
+
+    retraso1 retraso1a(
         .reset_L       ( reset_L       ),
         .clk           ( clk           ),
         .VC0           ( VC0 [5:0]          ),
@@ -19,13 +39,12 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1, data_arbitro_VC0, data_arbitro_
         .pop_delay_VC1 ( pop_delay_VC1 ),
         .VC0_empty (VC0_empty),
         .VC1_empty (VC1_empty),
-        //.mux_arbitro_1 ( mux_arbitro_1 [5:0] ),
-        .arbitro_D0_out        ( arbitro_D0_out       [5:0] ),
-        .arbitro_D1_out        ( arbitro_D1_out       [5:0] ),
-        .D0_push       ( D0_push ),
-        .D1_push       ( D1_push )
-    );
+        .VC0_retrasado           ( VC0_retrasado [5:0]          ),
+        .VC1_retrasado           ( VC1_retrasado [5:0]          ),
+        .VC0_empty_retrasado (VC0_empty_retrasado),
+        .VC1_empty_retrasado (VC1_empty_retrasado)
 
+    );
 
 
 logica_pops u_logica_pops(
