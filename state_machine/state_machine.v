@@ -102,7 +102,7 @@ module state_machine(
                         
                     end
                     else if (!reset) next_state = RESET;  
-                    else begin
+                    else if (reset && !init)begin
                         next_umbral_MFs = umbral_MFs;
                         next_umbral_VCs = umbral_VCs;
                         next_umbral_Ds = umbral_Ds;
