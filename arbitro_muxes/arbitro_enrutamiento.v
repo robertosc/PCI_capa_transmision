@@ -1,6 +1,7 @@
 `include "./arbitro_muxes/arbitro_mux.v"
 `include "./arbitro_muxes/logica_pops.v"
 `include "./arbitro_muxes/retraso1.v"
+`include "./arbitro_muxes/retraso3.v"
 
 
 module arbitro_enrutamiento(input [5:0]VC0, VC1, data_arbitro_VC0, data_arbitro_VC1,
@@ -11,6 +12,7 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1, data_arbitro_VC0, data_arbitro_
 
     wire pop_delay_VC0, pop_delay_VC1;
     wire VC0_empty_retrasado, VC1_empty_retrasado;
+    wire VC0_empty_retrasado_retrasado, VC1_empty_retrasado_retrasado;
     wire  [5:0] VC0_retrasado;
 	wire  [5:0] VC1_retrasado;
 
@@ -21,8 +23,8 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1, data_arbitro_VC0, data_arbitro_
         .VC1           ( VC1_retrasado [5:0]          ),
         .pop_delay_VC0 ( pop_delay_VC0 ),
         .pop_delay_VC1 ( pop_delay_VC1 ),
-        .VC0_empty (VC0_empty_retrasado),
-        .VC1_empty (VC1_empty_retrasado),
+        .VC0_empty (VC0_empty_retrasado_retrasado),
+        .VC1_empty (VC1_empty_retrasado_retrasado),
         //.mux_arbitro_1 ( mux_arbitro_1 [5:0] ),
         .arbitro_D0_out        ( arbitro_D0_out       [5:0] ),
         .arbitro_D1_out        ( arbitro_D1_out       [5:0] ),
@@ -44,6 +46,13 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1, data_arbitro_VC0, data_arbitro_
         .VC0_empty_retrasado (VC0_empty_retrasado),
         .VC1_empty_retrasado (VC1_empty_retrasado)
 
+    );
+    retraso3 retraso3a(
+        .clk           ( clk           ),
+        .VC0_empty_retrasado (VC0_empty_retrasado),
+        .VC1_empty_retrasado (VC1_empty_retrasado),
+        .VC0_empty_retrasado_retrasado (VC0_empty_retrasado_retrasado),
+        .VC1_empty_retrasado_retrasado (VC1_empty_retrasado_retrasado)
     );
 
 

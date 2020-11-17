@@ -17854,58 +17854,62 @@ module VC1_fifo_synth(clk, reset, wr_enable, rd_enable, init, data_in, Umbral_VC
   assign i = 32'd16;
 endmodule
 
-(* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:6" *)
+(* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
 module arbitro_enrutamiento_synth(VC0, VC1, data_arbitro_VC0, data_arbitro_VC1, clk, reset_L, almost_full_fifo_D0, almost_full_fifo_D1, full_fifo_D0, full_fifo_D1, VC0_empty, VC1_empty, VC1_pop, VC0_pop, D0_push, D1_push, arbitro_D0_out, arbitro_D1_out);
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:9" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:10" *)
   output D0_push;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:9" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:10" *)
   output D1_push;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:6" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
   input [5:0] VC0;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:8" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:9" *)
   input VC0_empty;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:13" *)
-  wire VC0_empty_retrasado;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:9" *)
-  output VC0_pop;
   (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:14" *)
-  wire [5:0] VC0_retrasado;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:6" *)
-  input [5:0] VC1;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:8" *)
-  input VC1_empty;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:13" *)
-  wire VC1_empty_retrasado;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:9" *)
-  output VC1_pop;
+  wire VC0_empty_retrasado;
   (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:15" *)
+  wire VC0_empty_retrasado_retrasado;
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:10" *)
+  output VC0_pop;
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:16" *)
+  wire [5:0] VC0_retrasado;
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
+  input [5:0] VC1;
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:9" *)
+  input VC1_empty;
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:14" *)
+  wire VC1_empty_retrasado;
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:15" *)
+  wire VC1_empty_retrasado_retrasado;
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:10" *)
+  output VC1_pop;
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:17" *)
   wire [5:0] VC1_retrasado;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:8" *)
   input almost_full_fifo_D0;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:8" *)
   input almost_full_fifo_D1;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:10" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:11" *)
   output [5:0] arbitro_D0_out;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:10" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:11" *)
   output [5:0] arbitro_D1_out;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:8" *)
   input clk;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:6" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
   input [5:0] data_arbitro_VC0;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:6" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
   input [5:0] data_arbitro_VC1;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:8" *)
   input full_fifo_D0;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:8" *)
   input full_fifo_D1;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:12" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:13" *)
   wire pop_delay_VC0;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:12" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:13" *)
   wire pop_delay_VC1;
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:7" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:8" *)
   input reset_L;
   (* module_not_derived = 32'd1 *)
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:33" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:35" *)
   retraso1_synth retraso1_syntha (
     .VC0(VC0),
     .VC0_empty(VC0_empty),
@@ -17921,14 +17925,23 @@ module arbitro_enrutamiento_synth(VC0, VC1, data_arbitro_VC0, data_arbitro_VC1, 
     .reset_L(reset_L)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:17" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:50" *)
+  retraso3_synth retraso3_syntha (
+    .VC0_empty_retrasado(VC0_empty_retrasado),
+    .VC0_empty_retrasado_retrasado(VC0_empty_retrasado_retrasado),
+    .VC1_empty_retrasado(VC1_empty_retrasado),
+    .VC1_empty_retrasado_retrasado(VC1_empty_retrasado_retrasado),
+    .clk(clk)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:19" *)
   arbitro_mux_synth u_arbitro_mux_synthes (
     .D0_push(D0_push),
     .D1_push(D1_push),
     .VC0(VC0_retrasado),
-    .VC0_empty(VC0_empty_retrasado),
+    .VC0_empty(VC0_empty_retrasado_retrasado),
     .VC1(VC1_retrasado),
-    .VC1_empty(VC1_empty_retrasado),
+    .VC1_empty(VC1_empty_retrasado_retrasado),
     .arbitro_D0_out(arbitro_D0_out),
     .arbitro_D1_out(arbitro_D1_out),
     .clk(clk),
@@ -17937,7 +17950,7 @@ module arbitro_enrutamiento_synth(VC0, VC1, data_arbitro_VC0, data_arbitro_VC1, 
     .reset_L(reset_L)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:50" *)
+  (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:59" *)
   logica_pops_synth u_logica_pops_synth (
     .VC0_empty(VC0_empty),
     .VC0_pop(VC0_pop),
@@ -21549,6 +21562,34 @@ module retraso1_synth(reset_L, clk, VC0, VC1, pop_delay_VC0, pop_delay_VC1, VC0_
     .C(clk),
     .D(VC1[5]),
     .Q(VC1_retrasado[5])
+  );
+endmodule
+
+(* src = "./arbitro_mux_synthes/retraso3_synth.v:1" *)
+module retraso3_synth(reset_L, clk, VC0_empty_retrasado, VC1_empty_retrasado, VC0_empty_retrasado_retrasado, VC1_empty_retrasado_retrasado);
+  (* src = "./arbitro_mux_synthes/retraso3_synth.v:2" *)
+  input VC0_empty_retrasado;
+  (* src = "./arbitro_mux_synthes/retraso3_synth.v:3" *)
+  output VC0_empty_retrasado_retrasado;
+  (* src = "./arbitro_mux_synthes/retraso3_synth.v:2" *)
+  input VC1_empty_retrasado;
+  (* src = "./arbitro_mux_synthes/retraso3_synth.v:3" *)
+  output VC1_empty_retrasado_retrasado;
+  (* src = "./arbitro_mux_synthes/retraso3_synth.v:1" *)
+  input clk;
+  (* src = "./arbitro_mux_synthes/retraso3_synth.v:1" *)
+  input reset_L;
+  (* src = "./arbitro_mux_synthes/retraso3_synth.v:6" *)
+  DFF _0_ (
+    .C(clk),
+    .D(VC0_empty_retrasado),
+    .Q(VC0_empty_retrasado_retrasado)
+  );
+  (* src = "./arbitro_mux_synthes/retraso3_synth.v:6" *)
+  DFF _1_ (
+    .C(clk),
+    .D(VC1_empty_retrasado),
+    .Q(VC1_empty_retrasado_retrasado)
   );
 endmodule
 
