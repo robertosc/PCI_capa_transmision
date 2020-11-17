@@ -51,20 +51,28 @@ initial begin
 	data_in <= 6'b000101;
 
 	@(posedge clk);
-	data_in <= 6'b000100;
+	data_in <= 6'b010100;
 /////////////
 	@(posedge clk);
     wr_enable <= 1;
 	data_in <= 6'b000110;
 
 	@(posedge clk);
-	data_in <= 6'b000100;
+	data_in <= 6'b010100;
 
 	@(posedge clk);
 	data_in <= 6'b000101;
 
 	@(posedge clk);
-	data_in <= 6'b000100;
+	data_in <= 6'b010100;
+
+	@(posedge clk);
+	data_in <= 6'b000101;
+
+	@(posedge clk);
+	data_in <= 6'b010100;
+
+
 
 	repeat (13) begin
 		@(posedge clk);

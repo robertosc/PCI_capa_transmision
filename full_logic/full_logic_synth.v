@@ -17895,8 +17895,10 @@ module arbitro_enrutamiento_synth(VC0, VC1, data_arbitro_VC0, data_arbitro_VC1, 
   (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:6" *)
   input full_fifo_D1;
   (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:11" *)
+  (* unused_bits = "0" *)
   wire pop_delay_VC0;
   (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:11" *)
+  (* unused_bits = "0" *)
   wire pop_delay_VC1;
   (* src = "./arbitro_mux_synthes/arbitro_enrutamiento_synth.v:6" *)
   input reset_L;
@@ -17912,8 +17914,8 @@ module arbitro_enrutamiento_synth(VC0, VC1, data_arbitro_VC0, data_arbitro_VC1, 
     .arbitro_D0_out(arbitro_D0_out),
     .arbitro_D1_out(arbitro_D1_out),
     .clk(clk),
-    .pop_delay_VC0(pop_delay_VC0),
-    .pop_delay_VC1(pop_delay_VC1),
+    .pop_delay_VC0(VC0_pop),
+    .pop_delay_VC1(VC1_pop),
     .reset_L(reset_L)
   );
   (* module_not_derived = 32'd1 *)
