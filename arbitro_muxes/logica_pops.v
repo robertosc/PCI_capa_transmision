@@ -13,8 +13,8 @@ module logica_pops(input VC0_empty, VC1_empty, full_fifo_D0, full_fifo_D1, almos
         end
     end
 
-    assign  D0_pause = full_fifo_D0 || almost_full_fifo_D0;
-    assign  D1_pause = full_fifo_D1 || almost_full_fifo_D1;
+    assign  D0_pause = full_fifo_D0;
+    assign  D1_pause = full_fifo_D1;
 
 
     always@(*) begin

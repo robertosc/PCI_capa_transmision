@@ -26,13 +26,13 @@ module D1_fifo #(
     assign empty_fifo_D1 = (cnt == 0);  
     assign error_D1 = (cnt > size_fifo);
     assign almost_empty_fifo_D1 = (cnt == 1);
-    assign almost_full_fifo_D1 = (cnt == size_fifo-1);
+    assign almost_full_fifo_D1 = (cnt >= size_fifo-Umbral_D1 && cnt < size_fifo);
     assign  full_fifo_D1_reg = full_fifo_D1;
 
     integer i;
 
 // WRITE //
-        always @(posedge clk) begin
+    always @(posedge clk) begin
        if (reset_L == 0 || init == 0) begin
             wr_ptr <= 0;
        		rd_ptr <= 4'b0;
