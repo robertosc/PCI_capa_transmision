@@ -18743,14 +18743,10 @@ module final_logic_synth(data_out_VC0, data_out_VC1, data_arbitro_VC0, data_arbi
   input D0_pop;
   (* src = "./final_logic_synth/final_logic_synth.v:19" *)
   wire D0_push;
-  (* src = "./final_logic_synth/final_logic_synth.v:20" *)
-  wire D0_push_retrasado;
   (* src = "./final_logic_synth/final_logic_synth.v:12" *)
   input D1_pop;
   (* src = "./final_logic_synth/final_logic_synth.v:19" *)
   wire D1_push;
-  (* src = "./final_logic_synth/final_logic_synth.v:20" *)
-  wire D1_push_retrasado;
   (* src = "./final_logic_synth/final_logic_synth.v:13" *)
   input [3:0] Umbral_D0;
   (* src = "./final_logic_synth/final_logic_synth.v:14" *)
@@ -18767,14 +18763,8 @@ module final_logic_synth(data_out_VC0, data_out_VC1, data_arbitro_VC0, data_arbi
   wire almost_full_fifo_D1;
   (* src = "./final_logic_synth/final_logic_synth.v:21" *)
   wire [5:0] arbitro_D0_out;
-  (* src = "./final_logic_synth/final_logic_synth.v:22" *)
-  (* unused_bits = "0 1 2 3 4 5" *)
-  wire [5:0] arbitro_D0_out_retrasado;
   (* src = "./final_logic_synth/final_logic_synth.v:21" *)
   wire [5:0] arbitro_D1_out;
-  (* src = "./final_logic_synth/final_logic_synth.v:23" *)
-  (* unused_bits = "0 1 2 3 4 5" *)
-  wire [5:0] arbitro_D1_out_retrasado;
   (* src = "./final_logic_synth/final_logic_synth.v:11" *)
   input clk;
   (* src = "./final_logic_synth/final_logic_synth.v:10" *)
@@ -18828,7 +18818,7 @@ module final_logic_synth(data_out_VC0, data_out_VC1, data_arbitro_VC0, data_arbi
     .init(init),
     .rd_enable(D0_pop),
     .reset_L(reset_L),
-    .wr_enable(D0_push_retrasado)
+    .wr_enable(D0_push)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "./final_logic_synth/final_logic_synth.v:73" *)
@@ -18845,7 +18835,7 @@ module final_logic_synth(data_out_VC0, data_out_VC1, data_arbitro_VC0, data_arbi
     .init(init),
     .rd_enable(D1_pop),
     .reset_L(reset_L),
-    .wr_enable(D1_push_retrasado)
+    .wr_enable(D1_push)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "./final_logic_synth/final_logic_synth.v:25" *)
@@ -18868,19 +18858,6 @@ module final_logic_synth(data_out_VC0, data_out_VC1, data_arbitro_VC0, data_arbi
     .full_fifo_D0(full_fifo_D0),
     .full_fifo_D1(full_fifo_D1),
     .reset_L(reset_L)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "./final_logic_synth/final_logic_synth.v:45" *)
-  retraso2_synth u_retraso2_synth (
-    .D0_push(D0_push),
-    .D0_push_retrasado(D0_push_retrasado),
-    .D1_push(D1_push),
-    .D1_push_retrasado(D1_push_retrasado),
-    .arbitro_D0_out(arbitro_D0_out),
-    .arbitro_D0_out_retrasado(arbitro_D0_out_retrasado),
-    .arbitro_D1_out(arbitro_D1_out),
-    .arbitro_D1_out_retrasado(arbitro_D1_out_retrasado),
-    .clk(clk)
   );
 endmodule
 
@@ -21572,112 +21549,6 @@ module retraso1_synth(reset_L, clk, VC0, VC1, pop_delay_VC0, pop_delay_VC1, VC0_
     .C(clk),
     .D(VC1[5]),
     .Q(VC1_retrasado[5])
-  );
-endmodule
-
-(* src = "./final_logic_synth/retraso2_synth.v:1" *)
-module retraso2_synth(clk, D0_push, D1_push, arbitro_D0_out, arbitro_D1_out, D0_push_retrasado, D1_push_retrasado, arbitro_D0_out_retrasado, arbitro_D1_out_retrasado);
-  (* src = "./final_logic_synth/retraso2_synth.v:2" *)
-  input D0_push;
-  (* src = "./final_logic_synth/retraso2_synth.v:5" *)
-  output D0_push_retrasado;
-  (* src = "./final_logic_synth/retraso2_synth.v:2" *)
-  input D1_push;
-  (* src = "./final_logic_synth/retraso2_synth.v:5" *)
-  output D1_push_retrasado;
-  (* src = "./final_logic_synth/retraso2_synth.v:3" *)
-  input [5:0] arbitro_D0_out;
-  (* src = "./final_logic_synth/retraso2_synth.v:6" *)
-  output [5:0] arbitro_D0_out_retrasado;
-  (* src = "./final_logic_synth/retraso2_synth.v:4" *)
-  input [5:0] arbitro_D1_out;
-  (* src = "./final_logic_synth/retraso2_synth.v:7" *)
-  output [5:0] arbitro_D1_out_retrasado;
-  (* src = "./final_logic_synth/retraso2_synth.v:2" *)
-  input clk;
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _00_ (
-    .C(clk),
-    .D(D0_push),
-    .Q(D0_push_retrasado)
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _01_ (
-    .C(clk),
-    .D(D1_push),
-    .Q(D1_push_retrasado)
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _02_ (
-    .C(clk),
-    .D(arbitro_D0_out[0]),
-    .Q(arbitro_D0_out_retrasado[0])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _03_ (
-    .C(clk),
-    .D(arbitro_D0_out[1]),
-    .Q(arbitro_D0_out_retrasado[1])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _04_ (
-    .C(clk),
-    .D(arbitro_D0_out[2]),
-    .Q(arbitro_D0_out_retrasado[2])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _05_ (
-    .C(clk),
-    .D(arbitro_D0_out[3]),
-    .Q(arbitro_D0_out_retrasado[3])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _06_ (
-    .C(clk),
-    .D(arbitro_D0_out[4]),
-    .Q(arbitro_D0_out_retrasado[4])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _07_ (
-    .C(clk),
-    .D(arbitro_D0_out[5]),
-    .Q(arbitro_D0_out_retrasado[5])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _08_ (
-    .C(clk),
-    .D(arbitro_D1_out[0]),
-    .Q(arbitro_D1_out_retrasado[0])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _09_ (
-    .C(clk),
-    .D(arbitro_D1_out[1]),
-    .Q(arbitro_D1_out_retrasado[1])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _10_ (
-    .C(clk),
-    .D(arbitro_D1_out[2]),
-    .Q(arbitro_D1_out_retrasado[2])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _11_ (
-    .C(clk),
-    .D(arbitro_D1_out[3]),
-    .Q(arbitro_D1_out_retrasado[3])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _12_ (
-    .C(clk),
-    .D(arbitro_D1_out[4]),
-    .Q(arbitro_D1_out_retrasado[4])
-  );
-  (* src = "./final_logic_synth/retraso2_synth.v:11" *)
-  DFF _13_ (
-    .C(clk),
-    .D(arbitro_D1_out[5]),
-    .Q(arbitro_D1_out_retrasado[5])
   );
 endmodule
 

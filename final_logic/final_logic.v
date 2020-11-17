@@ -1,7 +1,7 @@
 `include "./arbitro_muxes/arbitro_enrutamiento.v"
 `include "./final_logic/D0_fifo.v"
 `include "./final_logic/D1_fifo.v"
-`include "./final_logic/retraso2.v"
+//`include "./final_logic/retraso2.v"
 
 module final_logic#(
             parameter data_width = 6,
@@ -17,10 +17,10 @@ module final_logic#(
             output error_D1, error_D0, empty_fifo_D1, empty_fifo_D0);
 
 wire D0_push, D1_push;
-wire D0_push_retrasado, D1_push_retrasado;
+//wire D0_push_retrasado, D1_push_retrasado;
 wire [5:0] arbitro_D0_out, arbitro_D1_out;
-wire [5:0] arbitro_D0_out_retrasado; 
-wire [5:0] arbitro_D1_out_retrasado;
+//wire [5:0] arbitro_D0_out_retrasado; 
+//wire [5:0] arbitro_D1_out_retrasado;
 
 arbitro_enrutamiento u_arbitro_enrutamiento(
     .VC0       ( data_out_VC0      ),
@@ -42,23 +42,23 @@ arbitro_enrutamiento u_arbitro_enrutamiento(
     .data_arbitro_VC0 (data_arbitro_VC0),
     .data_arbitro_VC1 (data_arbitro_VC1)
 );
-retraso2 u_retraso2(
-    .clk (clk),
-    .arbitro_D0_out (arbitro_D0_out),
-    .arbitro_D1_out (arbitro_D1_out),
-    .D0_push (D0_push),
-    .D1_push (D1_push),
-    .D0_push_retrasado (D0_push_retrasado),
-    .D1_push_retrasado (D1_push_retrasado),
-    .arbitro_D0_out_retrasado (arbitro_D0_out_retrasado),
-    .arbitro_D1_out_retrasado (arbitro_D1_out_retrasado)
-);
+//retraso2 u_retraso2(
+//    .clk (clk),
+//    .arbitro_D0_out (arbitro_D0_out),
+//    .arbitro_D1_out (arbitro_D1_out),
+//    .D0_push (D0_push),
+//    .D1_push (D1_push),
+//    .D0_push_retrasado (D0_push_retrasado),
+//    .D1_push_retrasado (D1_push_retrasado),
+//    .arbitro_D0_out_retrasado (arbitro_D0_out_retrasado),
+//    .arbitro_D1_out_retrasado (arbitro_D1_out_retrasado)
+//);
 
 D0_fifo u_D0_fifo(
     .clk                  ( clk                  ),
     .reset_L              ( reset_L              ),
     .init                 (init),
-    .wr_enable            ( D0_push_retrasado            ),
+    .wr_enable            ( D0_push            ),
     .rd_enable            ( D0_pop               ),
     .data_in              ( arbitro_D0_out [5:0]         ),
     .full_fifo_D0         ( full_fifo_D0         ),
@@ -74,7 +74,7 @@ D1_fifo u_D1_fifo(
     .clk                  ( clk                  ),
     .reset_L              ( reset_L              ),
     .init                 (init),
-    .wr_enable            ( D1_push_retrasado              ),
+    .wr_enable            ( D1_push              ),
     .rd_enable            ( D1_pop               ),
     .data_in              ( arbitro_D1_out [5:0]         ),
     .full_fifo_D1         ( full_fifo_D1         ),
