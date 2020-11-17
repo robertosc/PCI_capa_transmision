@@ -3,13 +3,13 @@
 (* dynports =  1  *)
 (* src = "./final_logic_synth/D0_fifo_synth.v:1" *)
 module D0_fifo_synth(clk, reset_L, wr_enable, rd_enable, init, data_in, Umbral_D0, full_fifo_D0, empty_fifo_D0_synth, almost_full_fifo_D0, almost_empty_fifo_D0_synth, error_D0_synth, data_out_D0_synth);
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   wire [2:0] _000_;
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   wire [5:0] _001_;
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   wire [1:0] _002_;
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   wire [1:0] _003_;
   wire _004_;
   wire _005_;
@@ -1944,67 +1944,67 @@ module D0_fifo_synth(clk, reset_L, wr_enable, rd_enable, init, data_in, Umbral_D
     .D(_015_),
     .Q(\mem[1] [5])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _636_ (
     .C(clk),
     .D(_003_[0]),
     .Q(wr_ptr[0])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _637_ (
     .C(clk),
     .D(_003_[1]),
     .Q(wr_ptr[1])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _638_ (
     .C(clk),
     .D(_000_[0]),
     .Q(cnt[0])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _639_ (
     .C(clk),
     .D(_000_[1]),
     .Q(cnt[1])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _640_ (
     .C(clk),
     .D(_000_[2]),
     .Q(cnt[2])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _641_ (
     .C(clk),
     .D(_001_[0]),
     .Q(data_out_D0_synth[0])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _642_ (
     .C(clk),
     .D(_001_[1]),
     .Q(data_out_D0_synth[1])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _643_ (
     .C(clk),
     .D(_001_[2]),
     .Q(data_out_D0_synth[2])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _644_ (
     .C(clk),
     .D(_001_[3]),
     .Q(data_out_D0_synth[3])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _645_ (
     .C(clk),
     .D(_001_[4]),
     .Q(data_out_D0_synth[4])
   );
-  (* src = "./final_logic_synth/D0_fifo_synth.v:32" *)
+  (* src = "./final_logic_synth/D0_fifo_synth.v:44" *)
   DFF _646_ (
     .C(clk),
     .D(_001_[5]),
@@ -8230,23 +8230,23 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
     .A(_0940_),
     .Y(_0003_[2])
   );
-  NOR _1652_ (
+  NAND _1652_ (
     .A(_0350_),
     .B(_0939_),
     .Y(_0941_)
   );
   NAND _1653_ (
-    .A(_0350_),
-    .B(_0939_),
+    .A(_0513_),
+    .B(_0941_),
     .Y(_0942_)
   );
-  NAND _1654_ (
-    .A(_0513_),
-    .B(_0942_),
+  NOR _1654_ (
+    .A(_0350_),
+    .B(_0939_),
     .Y(_0943_)
   );
   NOR _1655_ (
-    .A(_0941_),
+    .A(_0942_),
     .B(_0943_),
     .Y(_0003_[3])
   );
@@ -9775,17 +9775,17 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
     .Y(_0046_)
   );
   NOR _1961_ (
-    .A(_0536_),
-    .B(_0960_),
+    .A(_0951_),
+    .B(_0105_),
     .Y(_0260_)
   );
   NAND _1962_ (
-    .A(_0535_),
-    .B(_0959_),
+    .A(_0950_),
+    .B(_0104_),
     .Y(_0261_)
   );
   NOR _1963_ (
-    .A(_0442_),
+    .A(_0448_),
     .B(_0514_),
     .Y(_0262_)
   );
@@ -9802,10 +9802,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _1966_ (
     .A(_0263_),
     .B(_0264_),
-    .Y(_0047_)
+    .Y(_0065_)
   );
   NOR _1967_ (
-    .A(_0443_),
+    .A(_0449_),
     .B(_0514_),
     .Y(_0265_)
   );
@@ -9822,10 +9822,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _1970_ (
     .A(_0266_),
     .B(_0267_),
-    .Y(_0048_)
+    .Y(_0066_)
   );
   NOR _1971_ (
-    .A(_0444_),
+    .A(_0450_),
     .B(_0514_),
     .Y(_0268_)
   );
@@ -9842,10 +9842,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _1974_ (
     .A(_0269_),
     .B(_0270_),
-    .Y(_0049_)
+    .Y(_0067_)
   );
   NOR _1975_ (
-    .A(_0445_),
+    .A(_0451_),
     .B(_0514_),
     .Y(_0271_)
   );
@@ -9862,10 +9862,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _1978_ (
     .A(_0272_),
     .B(_0273_),
-    .Y(_0050_)
+    .Y(_0068_)
   );
   NOR _1979_ (
-    .A(_0446_),
+    .A(_0452_),
     .B(_0514_),
     .Y(_0274_)
   );
@@ -9882,10 +9882,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _1982_ (
     .A(_0275_),
     .B(_0276_),
-    .Y(_0051_)
+    .Y(_0069_)
   );
   NOR _1983_ (
-    .A(_0447_),
+    .A(_0453_),
     .B(_0514_),
     .Y(_0277_)
   );
@@ -9902,20 +9902,20 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _1986_ (
     .A(_0278_),
     .B(_0279_),
-    .Y(_0052_)
+    .Y(_0070_)
   );
   NOR _1987_ (
-    .A(_0951_),
-    .B(_0105_),
+    .A(_0536_),
+    .B(_0984_),
     .Y(_0280_)
   );
   NAND _1988_ (
-    .A(_0950_),
-    .B(_0104_),
+    .A(_0535_),
+    .B(_0983_),
     .Y(_0281_)
   );
   NOR _1989_ (
-    .A(_0448_),
+    .A(_0436_),
     .B(_0514_),
     .Y(_0282_)
   );
@@ -9932,10 +9932,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _1992_ (
     .A(_0283_),
     .B(_0284_),
-    .Y(_0065_)
+    .Y(_0053_)
   );
   NOR _1993_ (
-    .A(_0449_),
+    .A(_0437_),
     .B(_0514_),
     .Y(_0285_)
   );
@@ -9952,10 +9952,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _1996_ (
     .A(_0286_),
     .B(_0287_),
-    .Y(_0066_)
+    .Y(_0054_)
   );
   NOR _1997_ (
-    .A(_0450_),
+    .A(_0438_),
     .B(_0514_),
     .Y(_0288_)
   );
@@ -9972,10 +9972,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2000_ (
     .A(_0289_),
     .B(_0290_),
-    .Y(_0067_)
+    .Y(_0055_)
   );
   NOR _2001_ (
-    .A(_0451_),
+    .A(_0439_),
     .B(_0514_),
     .Y(_0291_)
   );
@@ -9992,10 +9992,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2004_ (
     .A(_0292_),
     .B(_0293_),
-    .Y(_0068_)
+    .Y(_0056_)
   );
   NOR _2005_ (
-    .A(_0452_),
+    .A(_0440_),
     .B(_0514_),
     .Y(_0294_)
   );
@@ -10012,10 +10012,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2008_ (
     .A(_0295_),
     .B(_0296_),
-    .Y(_0069_)
+    .Y(_0057_)
   );
   NOR _2009_ (
-    .A(_0453_),
+    .A(_0441_),
     .B(_0514_),
     .Y(_0297_)
   );
@@ -10032,20 +10032,20 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2012_ (
     .A(_0298_),
     .B(_0299_),
-    .Y(_0070_)
+    .Y(_0058_)
   );
   NOR _2013_ (
     .A(_0536_),
-    .B(_0984_),
+    .B(_0960_),
     .Y(_0300_)
   );
   NAND _2014_ (
     .A(_0535_),
-    .B(_0983_),
+    .B(_0959_),
     .Y(_0301_)
   );
   NOR _2015_ (
-    .A(_0436_),
+    .A(_0442_),
     .B(_0514_),
     .Y(_0302_)
   );
@@ -10062,10 +10062,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2018_ (
     .A(_0303_),
     .B(_0304_),
-    .Y(_0053_)
+    .Y(_0047_)
   );
   NOR _2019_ (
-    .A(_0437_),
+    .A(_0443_),
     .B(_0514_),
     .Y(_0305_)
   );
@@ -10082,10 +10082,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2022_ (
     .A(_0306_),
     .B(_0307_),
-    .Y(_0054_)
+    .Y(_0048_)
   );
   NOR _2023_ (
-    .A(_0438_),
+    .A(_0444_),
     .B(_0514_),
     .Y(_0308_)
   );
@@ -10102,10 +10102,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2026_ (
     .A(_0309_),
     .B(_0310_),
-    .Y(_0055_)
+    .Y(_0049_)
   );
   NOR _2027_ (
-    .A(_0439_),
+    .A(_0445_),
     .B(_0514_),
     .Y(_0311_)
   );
@@ -10122,10 +10122,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2030_ (
     .A(_0312_),
     .B(_0313_),
-    .Y(_0056_)
+    .Y(_0050_)
   );
   NOR _2031_ (
-    .A(_0440_),
+    .A(_0446_),
     .B(_0514_),
     .Y(_0314_)
   );
@@ -10142,10 +10142,10 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2034_ (
     .A(_0315_),
     .B(_0316_),
-    .Y(_0057_)
+    .Y(_0051_)
   );
   NOR _2035_ (
-    .A(_0441_),
+    .A(_0447_),
     .B(_0514_),
     .Y(_0317_)
   );
@@ -10162,7 +10162,7 @@ module VC0_fifo_synth(clk, reset, wr_enable, rd_enable, data_in, init, Umbral_VC
   NOR _2038_ (
     .A(_0318_),
     .B(_0319_),
-    .Y(_0058_)
+    .Y(_0052_)
   );
   NOR _2039_ (
     .A(_0536_),
@@ -19229,21 +19229,17 @@ endmodule
 
 (* src = "./arbitro_mux_synthes/logica_pops_synth.v:1" *)
 module logica_pops_synth(VC0_empty, VC1_empty, full_fifo_D0, full_fifo_D1, almost_full_fifo_D0, almost_full_fifo_D1, clk, reset_L, data_arbitro_VC0, data_arbitro_VC1, VC0_pop, VC1_pop, pop_delay_VC0, pop_delay_VC1);
-  (* src = "./arbitro_mux_synthes/logica_pops_synth.v:17" *)
+  (* src = "./arbitro_mux_synthes/logica_pops_synth.v:5" *)
   wire _00_;
-  (* src = "./arbitro_mux_synthes/logica_pops_synth.v:17" *)
+  (* src = "./arbitro_mux_synthes/logica_pops_synth.v:5" *)
   wire _01_;
-  (* src = "./arbitro_mux_synthes/logica_pops_synth.v:5" *)
   wire _02_;
-  (* src = "./arbitro_mux_synthes/logica_pops_synth.v:5" *)
   wire _03_;
   wire _04_;
   wire _05_;
   wire _06_;
   wire _07_;
   wire _08_;
-  wire _09_;
-  wire _10_;
   (* src = "./arbitro_mux_synthes/logica_pops_synth.v:1" *)
   input VC0_empty;
   (* src = "./arbitro_mux_synthes/logica_pops_synth.v:3" *)
@@ -19272,80 +19268,70 @@ module logica_pops_synth(VC0_empty, VC1_empty, full_fifo_D0, full_fifo_D1, almos
   output pop_delay_VC1;
   (* src = "./arbitro_mux_synthes/logica_pops_synth.v:1" *)
   input reset_L;
-  NOT _11_ (
-    .A(reset_L),
-    .Y(_05_)
-  );
-  NOT _12_ (
-    .A(almost_full_fifo_D1),
-    .Y(_06_)
-  );
-  NAND _13_ (
-    .A(VC0_pop),
-    .B(reset_L),
-    .Y(_07_)
-  );
-  NOT _14_ (
-    .A(_07_),
+  NOT _09_ (
+    .A(VC1_empty),
     .Y(_02_)
   );
-  NAND _15_ (
+  NOT _10_ (
+    .A(full_fifo_D1),
+    .Y(_03_)
+  );
+  NOR _11_ (
+    .A(full_fifo_D0),
+    .B(almost_full_fifo_D0),
+    .Y(_04_)
+  );
+  NAND _12_ (
+    .A(reset_L),
+    .B(_03_),
+    .Y(_05_)
+  );
+  NOR _13_ (
+    .A(almost_full_fifo_D1),
+    .B(_05_),
+    .Y(_06_)
+  );
+  NAND _14_ (
+    .A(_04_),
+    .B(_06_),
+    .Y(_07_)
+  );
+  NOR _15_ (
     .A(VC0_empty),
-    .B(reset_L),
+    .B(_07_),
+    .Y(VC0_pop)
+  );
+  NAND _16_ (
+    .A(VC0_empty),
+    .B(_02_),
     .Y(_08_)
   );
-  NOR _16_ (
-    .A(VC1_empty),
+  NOR _17_ (
+    .A(_07_),
+    .B(_08_),
+    .Y(VC1_pop)
+  );
+  NOR _18_ (
+    .A(VC0_empty),
+    .B(_07_),
+    .Y(_00_)
+  );
+  NOR _19_ (
+    .A(_07_),
     .B(_08_),
     .Y(_01_)
   );
-  NOR _17_ (
-    .A(VC0_empty),
-    .B(_05_),
-    .Y(_00_)
-  );
-  NAND _18_ (
-    .A(reset_L),
-    .B(VC1_pop),
-    .Y(_09_)
-  );
-  NOT _19_ (
-    .A(_09_),
-    .Y(_03_)
-  );
-  NOR _20_ (
-    .A(_05_),
-    .B(almost_full_fifo_D0),
-    .Y(_10_)
-  );
-  NAND _21_ (
-    .A(_06_),
-    .B(_10_),
-    .Y(_04_)
-  );
   (* src = "./arbitro_mux_synthes/logica_pops_synth.v:5" *)
-  DFF _22_ (
+  DFF _20_ (
     .C(clk),
-    .D(_03_),
+    .D(_01_),
     .Q(pop_delay_VC1)
   );
   (* src = "./arbitro_mux_synthes/logica_pops_synth.v:5" *)
-  DFF _23_ (
+  DFF _21_ (
     .C(clk),
-    .D(_02_),
-    .Q(pop_delay_VC0)
-  );
-  (* src = "./arbitro_mux_synthes/logica_pops_synth.v:17" *)
-  \$_DLATCH_P_  _24_ (
     .D(_00_),
-    .E(_04_),
-    .Q(VC0_pop)
-  );
-  (* src = "./arbitro_mux_synthes/logica_pops_synth.v:17" *)
-  \$_DLATCH_P_  _25_ (
-    .D(_01_),
-    .E(_04_),
-    .Q(VC1_pop)
+    .Q(pop_delay_VC0)
   );
 endmodule
 
@@ -22331,14 +22317,14 @@ module state_machine_synth(clk, reset, init, umbral_MFs, umbral_VCs, umbral_Ds, 
   (* src = "./state_machine_synth/state_machine_synth.v:46" *)
   DFF _267_ (
     .C(clk),
-    .D(_000_),
-    .Q(active_out)
+    .D(_002_),
+    .Q(idle_out)
   );
   (* src = "./state_machine_synth/state_machine_synth.v:46" *)
   DFF _268_ (
     .C(clk),
-    .D(_002_),
-    .Q(idle_out)
+    .D(_000_),
+    .Q(active_out)
   );
   (* src = "./state_machine_synth/state_machine_synth.v:46" *)
   DFF _269_ (

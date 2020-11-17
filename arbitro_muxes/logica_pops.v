@@ -13,25 +13,23 @@ module logica_pops(input VC0_empty, VC1_empty, full_fifo_D0, full_fifo_D1, almos
         end
     end
 
+    assign  D0_pause = full_fifo_D0 || almost_full_fifo_D0;
+    assign  D1_pause = full_fifo_D1 || almost_full_fifo_D1;
+
 
     always@(*) begin
         if (reset_L) begin 
-            if(almost_full_fifo_D0 || almost_full_fifo_D1) begin
+            if(~(D0_pause||D1_pause)) begin
                 if(~VC1_empty && VC0_empty) VC1_pop = 1;
                 else VC1_pop = 0;
 
                 if (~VC0_empty) VC0_pop = 1;
                 else VC0_pop = 0;
             end
-            //case ({almost_full_fifo_D0, full_fifo_D0, almost_full_fifo_D1, full_fifo_D1})
-            //    0000: begin
-            //            if(~VC1_empty && VC0_empty) VC1_pop = 1;
-            //            else VC1_pop = 0;
-            //            if (~VC0_empty) VC0_pop = 1;
-            //            else VC0_pop = 0;
-            //    end
-            //endcase
-
+            else begin
+                VC0_pop = 0;
+                VC1_pop = 0;
+            end
         end
         else begin
             VC0_pop = 0;
@@ -39,6 +37,5 @@ module logica_pops(input VC0_empty, VC1_empty, full_fifo_D0, full_fifo_D1, almos
         end
         
     end
-
                 
 endmodule
