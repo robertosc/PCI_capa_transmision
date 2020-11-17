@@ -28,7 +28,7 @@ module initial_logic#(
             output almost_full_fifo_VC1,
             output almost_empty_fifo_VC1,
             output error_VC1,
-            output [5:0] data_out_VC1 );
+            output [5:0] data_out_VC1, data_arbitro_VC0, data_arbitro_VC1);
 
 
 	wire  [5:0] data_out_demux_initial_vc0;
@@ -59,10 +59,12 @@ module initial_logic#(
 
     VC0_fifo fifo_VC0 (.clk(clk), .reset(reset), .init(init), .wr_enable(push_vc0), .rd_enable(pop_VC0_fifo), .data_in(data_out_demux_initial_vc0),
                     .full_fifo_VC0(full_fifo_VC0), .empty_fifo_VC0(empty_fifo_VC0), .almost_full_fifo_VC0(almost_full_fifo_VC0), 
-                    .almost_empty_fifo_VC0(almost_empty_fifo_VC0), .error_VC0(error_VC0), .data_out_VC0(data_out_VC0), .Umbral_VC0(Umbral_VC0));
+                    .almost_empty_fifo_VC0(almost_empty_fifo_VC0), .error_VC0(error_VC0), .data_out_VC0(data_out_VC0), .Umbral_VC0(Umbral_VC0),
+                    .data_arbitro_VC0 (data_arbitro_VC0));
 
     VC1_fifo fifo_VC1 (.clk(clk), .reset(reset), .init(init), .wr_enable(push_vc1), .rd_enable(pop_VC1_fifo), .data_in(data_out_demux_initial_vc1),
                     .full_fifo_VC1(full_fifo_VC1), .empty_fifo_VC1(empty_fifo_VC1), .almost_full_fifo_VC1(almost_full_fifo_VC1), 
-                    .almost_empty_fifo_VC1(almost_empty_fifo_VC1), .error_VC1(error_VC1), .data_out_VC1(data_out_VC1), .Umbral_VC1(Umbral_VC1));
+                    .almost_empty_fifo_VC1(almost_empty_fifo_VC1), .error_VC1(error_VC1), .data_out_VC1(data_out_VC1), .Umbral_VC1(Umbral_VC1),
+                    .data_arbitro_VC1 (data_arbitro_VC1));
 
 endmodule

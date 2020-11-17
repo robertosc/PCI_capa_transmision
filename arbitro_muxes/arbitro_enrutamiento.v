@@ -2,8 +2,8 @@
 `include "./arbitro_muxes/logica_pops.v"
 
 
-module arbitro_enrutamiento(input [5:0]VC0, VC1,
-                            input clk, reset_L,
+module arbitro_enrutamiento(input [5:0]VC0, VC1, data_arbitro_VC0, data_arbitro_VC1,
+                            input clk, reset_L, almost_full_fifo_D0, almost_full_fifo_D1, full_fifo_D0, full_fifo_D1,
                             input VC0_empty, VC1_empty, D1_pause, D0_pause,
                             output VC1_pop, VC0_pop, D0_push, D1_push,
                             output [5:0] arbitro_D0_out, arbitro_D1_out);
@@ -26,18 +26,25 @@ module arbitro_enrutamiento(input [5:0]VC0, VC1,
         .D1_push       ( D1_push )
     );
 
-    logica_pops u_logica_pops(
-        .VC0_empty     ( VC0_empty     ),
-        .VC1_empty     ( VC1_empty     ),
-        .D0_pause      ( D0_pause      ),
-        .D1_pause      ( D1_pause      ),
-        .clk           ( clk           ),
-        .VC0_pop       ( VC0_pop       ),
-        .VC1_pop       ( VC1_pop       ),
-        .pop_delay_VC0 ( pop_delay_VC0 ),
-        .pop_delay_VC1 ( pop_delay_VC1 ),
-        .reset_L       ( reset_L       )
-    );
+
+
+logica_pops u_logica_pops(
+    .VC0_empty           ( VC0_empty           ),
+    .VC1_empty           ( VC1_empty           ),
+    .full_fifo_D0        ( full_fifo_D0        ),
+    .full_fifo_D1        ( full_fifo_D1        ),
+    .almost_full_fifo_D0  ( almost_full_fifo_D0  ),
+    .almost_full_fifo_D1 ( almost_full_fifo_D1 ),
+    .clk                 ( clk                 ),
+    .reset_L             ( reset_L             ),
+    .VC0_pop             ( VC0_pop             ),
+    .VC1_pop             ( VC1_pop             ),
+    .pop_delay_VC0       ( pop_delay_VC0       ),
+    .pop_delay_VC1       ( pop_delay_VC1       ),
+    .data_arbitro_VC0    ( data_arbitro_VC0),
+    .data_arbitro_VC1    ( data_arbitro_VC1)
+);
+
 
 
 endmodule
