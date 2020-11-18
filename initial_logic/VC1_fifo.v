@@ -27,8 +27,8 @@ module VC1_fifo #(
     assign full_fifo_VC1 = (cnt == size_fifo);
     assign empty_fifo_VC1 = (cnt == 0);  
     assign error_VC1 = (cnt > size_fifo);
-    assign almost_empty_fifo_VC1 = (cnt == Umbral_VC1);
-    assign almost_full_fifo_VC1 = (cnt == size_fifo-Umbral_VC1);
+    assign almost_empty_fifo_VC1 = (cnt <= Umbral_VC1 && cnt > 0);
+    assign almost_full_fifo_VC1 = (cnt >= size_fifo-Umbral_VC1 && cnt < size_fifo);
     assign full_fifo_VC1_reg = full_fifo_VC1;
 
     always @(posedge clk) begin
@@ -48,12 +48,19 @@ module VC1_fifo #(
                      wr_ptr <= wr_ptr+1;
                 end
 
-                if (rd_enable == 1) begin
+                else if (rd_enable == 1) begin
                      data_out_VC1 <= mem[rd_ptr];
                      rd_ptr <= rd_ptr+1;
                 end
                 else data_out_VC1 <=0;
 
+                //case ({wr_enable, rd_enable})
+                //    2'b00: cnt <= cnt;
+                //    2'b01: cnt <= cnt-1;
+                //    2'b10: cnt <= cnt+1;
+                //    2'b11: cnt <= cnt;
+                //    default: cnt <= cnt;
+                //endcase
             end
             if (reset == 1 && init == 1 && full_fifo_VC1_reg) begin
                  if (rd_enable == 1) begin

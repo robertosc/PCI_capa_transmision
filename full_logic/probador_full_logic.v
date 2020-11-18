@@ -5,6 +5,11 @@ module probador_full_logic#(
             (output reg clk, reset, wr_enable,
             output reg[data_width-1:0] data_in,
             output reg D0_pop, D1_pop,
+			output reg [3:0] Umbral_Main,
+			output reg [3:0] Umbral_VC0,
+			output reg [3:0] Umbral_VC1,
+			output reg [3:0] Umbral_D0,
+			output reg [3:0] Umbral_D1,
 			output reg init,
             output reg [3:0] umbral_MFs,
             output reg [3:0] umbral_VCs,
@@ -22,16 +27,21 @@ module probador_full_logic#(
             );
 
 initial begin
-	$dumpfile("prueba_full_logic_llenado.vcd");
+	$dumpfile("prueba_full_logic.vcd");
 	$dumpvars;
 
 	{wr_enable, reset} <= 0;
 	data_in <= 0;
     D0_pop <= 0;
     D1_pop <= 0;
+	//Umbral_Main <= 1;
+	//Umbral_VC0 <= 1;
+	//Umbral_VC1 <= 1;
+	//Umbral_D0 <= 2;
+	//Umbral_D1 <= 2;
 	init<=0;
 	umbral_MFs [3:0] <= 1 ;
-    umbral_VCs [3:0] <= 1 ;
+    umbral_VCs [3:0] <= 2 ;
     umbral_Ds  [3:0] <= 2 ;
 
 	@(posedge clk);
@@ -43,7 +53,11 @@ initial begin
 	data_in <= 6'b000000;
 
 	@(posedge clk);
-	data_in <= 6'b000101;
+	//data_in <= 6'b000010;
+
+
+	@(posedge clk);
+	data_in <= 6'b000011;
 
 	@(posedge clk);
 	init<=1;
@@ -54,27 +68,19 @@ initial begin
 	data_in <= 6'b000110;
 
 	@(posedge clk);
-	data_in <= 6'b010100;
+	data_in <= 6'b000100;
 
 	@(posedge clk);
 	data_in <= 6'b000101;
 
 	@(posedge clk);
-	data_in <= 6'b110100;
-
-	@(posedge clk);
-	data_in <= 6'b100101;
-
-	@(posedge clk);
-	data_in <= 6'b110100;
-
-
+	data_in <= 6'b000100;
 
 	repeat (13) begin
 		@(posedge clk);
 		data_in <= 6'b000101;
 		@(posedge clk);
-		data_in <= 6'b010110;
+		data_in <= 6'b110110;
 		@(posedge clk);
 		data_in <= 6'b001110;
 	end

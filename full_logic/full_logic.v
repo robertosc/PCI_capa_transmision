@@ -10,6 +10,11 @@ module full_logic#(
             (input clk, reset, wr_enable,
             input [data_width-1:0] data_in,
             input D0_pop, D1_pop,
+            input [3:0] Umbral_Main,
+            input [3:0] Umbral_VC0,
+            input [3:0]Umbral_VC1,
+            input [3:0] Umbral_D0,
+            input [3:0]Umbral_D1,
             input init,
             input [3:0] umbral_MFs,
             input [3:0] umbral_VCs,
@@ -24,7 +29,7 @@ module full_logic#(
             );
 
 wire pop_VC0_fifo, pop_VC1_fifo;
-wire [5:0] data_out_VC0,data_out_VC1, data_arbitro_VC0, data_arbitro_VC1;
+wire [5:0] data_out_VC0,data_out_VC1;
 wire empty_fifo_VC0, empty_fifo_VC1;
 wire error_main;
 wire empty_main_fifo;
@@ -64,9 +69,7 @@ wire [3:0] next_umbral_Ds;
         .error_VC1             ( error_VC1             ),
         .data_out_VC1          ( data_out_VC1[5:0]     ),
         .empty_main_fifo (empty_main_fifo),
-		.error_main (error_main),
-        .data_arbitro_VC0 (data_arbitro_VC0),
-        .data_arbitro_VC1 (data_arbitro_VC1)
+		.error_main (error_main)
     );
 
     final_logic final_logic_1(
@@ -88,9 +91,7 @@ wire [3:0] next_umbral_Ds;
     .error_D1       ( error_D1       ),
     .error_D0       ( error_D0       ),
     .empty_fifo_D0  (empty_fifo_D0),
-    .empty_fifo_D1  (empty_fifo_D1),
-    .data_arbitro_VC0(data_arbitro_VC0),
-    .data_arbitro_VC1(data_arbitro_VC1)
+    .empty_fifo_D1  (empty_fifo_D1)
 );
     state_machine state_machine_1(
     .clk            ( clk ),
