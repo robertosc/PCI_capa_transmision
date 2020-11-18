@@ -50,7 +50,7 @@ initial begin
     @(posedge clk);
     wr_enable <= 1;
 	reset <= 1;
-	data_in <= 6'b000000;
+	data_in <= 6'b010000;
 
 	@(posedge clk);
 	//data_in <= 6'b000010;
@@ -61,7 +61,7 @@ initial begin
 
 	@(posedge clk);
 	init<=1;
-	data_in <= 6'b000100;
+	data_in <= 6'b010100;
 /////////////
 	@(posedge clk);
     wr_enable <= 1;
@@ -71,7 +71,7 @@ initial begin
 	data_in <= 6'b000100;
 
 	@(posedge clk);
-	data_in <= 6'b000101;
+	data_in <= 6'b010101;
 
 	@(posedge clk);
 	data_in <= 6'b000100;
