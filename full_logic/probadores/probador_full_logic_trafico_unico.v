@@ -40,52 +40,52 @@ initial begin
     @(posedge clk);
     wr_enable <= 1;
 	reset <= 1;
-	data_in <= 6'b110000;
+	data_in <= 6'b001100;
 
 	@(posedge clk);
-	data_in <= 6'b110101;
+	data_in <= 6'b001101;
 
 	@(posedge clk);
 	init<=1;
-	data_in <= 6'b110100;
+	data_in <= 6'b001100;
 /////////////
 	@(posedge clk);
     wr_enable <= 1;
-	data_in <= 6'b110110;
+	data_in <= 6'b001101;
 
 	@(posedge clk);
-	data_in <= 6'b110100;
+	data_in <= 6'b001100;
 
 	@(posedge clk);
-	data_in <= 6'b110101;
+	data_in <= 6'b001101;
 
 	@(posedge clk);
-	data_in <= 6'b110100;
+	data_in <= 6'b001100;
 
 	@(posedge clk);
-	data_in <= 6'b110101;
+	data_in <= 6'b001101;
 
 	@(posedge clk);
-	data_in <= 6'b110100;
+	data_in <= 6'b001100;
 
 
 
 	repeat (13) begin
 		@(posedge clk);
-		data_in <= 6'b000101;
+		data_in <= 6'b001100;
 		@(posedge clk);
-		data_in <= 6'b110110;
+		data_in <= 6'b001101;
 		@(posedge clk);
-		data_in <= 6'b111110;
+		data_in <= 6'b001100;
 	end
 	
 	@(posedge clk);
-	data_in <= 6'b100010;
+	data_in <= 6'b001101;
 	D0_pop <= 1;
 	D1_pop <= 1;
 
 	@(posedge clk);
-	data_in <= 6'b100011;
+	data_in <= 6'b001100;
 
 	repeat (10) begin
 		@(posedge clk);

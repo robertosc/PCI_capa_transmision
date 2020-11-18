@@ -54,19 +54,19 @@ initial begin
 	data_in <= 6'b000110;
 
 	@(posedge clk);
-	data_in <= 6'b000100;
+	data_in <= 6'b010100;
 
 	@(posedge clk);
 	data_in <= 6'b000101;
 
 	@(posedge clk);
-	data_in <= 6'b000100;
+	data_in <= 6'b110100;
 
 	@(posedge clk);
-	data_in <= 6'b000101;
+	data_in <= 6'b100101;
 
 	@(posedge clk);
-	data_in <= 6'b000100;
+	data_in <= 6'b110100;
 
 
 
@@ -74,7 +74,7 @@ initial begin
 		@(posedge clk);
 		data_in <= 6'b000101;
 		@(posedge clk);
-		data_in <= 6'b000110;
+		data_in <= 6'b010110;
 		@(posedge clk);
 		data_in <= 6'b001110;
 	end
