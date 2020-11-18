@@ -22,7 +22,7 @@ module probador_full_logic#(
             );
 
 initial begin
-	$dumpfile("prueba_full_logic.vcd");
+	$dumpfile("prueba_full_logic_llenado.vcd");
 	$dumpvars;
 
 	{wr_enable, reset} <= 0;

@@ -21,6 +21,7 @@ module VC0_fifo #(
     reg [address_width-1:0] rd_ptr;
     reg [address_width:0] cnt;
     wire full_fifo_VC0_reg;
+    reg hola;
 
     integer i;
 
@@ -47,7 +48,7 @@ module VC0_fifo #(
                      mem[wr_ptr] <= data_in;
                      wr_ptr <= wr_ptr+1;
                 end
-
+                
                 if (rd_enable == 1) begin
                      data_out_VC0 <= mem[rd_ptr];
                      rd_ptr <= rd_ptr+1;
